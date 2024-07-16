@@ -7,6 +7,7 @@ $(document).ready(function () {
         // Elimina la clase 'active' de todos los enlaces
         $(".nav-item a").removeClass("active");
 
+
         // Añade la clase 'active' al enlace sobre el que se hizo clic
         $(this).addClass("active");
     });
