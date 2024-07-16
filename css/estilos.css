@@ -12,3 +12,13 @@ body{
     color: white !important; /* Cambia el color del texto a blanco para mejor contraste */
 }
 
+.carousel-item img {
+    width: 500px;
+    height: 500px;
+}
+
+/*.carousel-item {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important; /* Esto asegura que el contenido también esté centrado verticalmente, si es necesario 
+}*/
