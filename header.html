@@ -21,64 +21,68 @@
     <body class="bg-dark">
 
         <!--NabVar-->
-        <div class="container mt-1">
-            <nav
-                class="navbar navbar-expand-lg  rounded shadow"
-                style="background-color: #e3f2fd;">
-
-                <div class="container-fluid bg-">
+        <div class="container mt-1" id="dvContainerNV">
+            <nav class="navbar navbar-expand-lg  rounded shadow"
+                style="background-color: #e3f2fd;" id="nvBarraNV">
+                <div class="container-fluid bg-" id="dvFluidNV">
                     <!--Btn con img-->
-                    <a class="navbar-brand" href="#">
-                        <img
-                            src="/img/Logo1.png"
-                            alt="Mundo del calzado" width="50"
-                            height="50">
+                    <a class="navbar-brand" href="#" id="aLogoNV">
+                        <img src="/img/Logo1.png" alt="Mundo del calzado"
+                            width="50" height="50" id="imgLogoNV">
                     </a>
                     <button class="navbar-toggler" type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Toggle navigation"
+                        id="btnToggleNV">
                         <!--Btn con Hamburguesa-->
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"
+                            id="spnIconoNV"></span>
                         <!--Btn con img-->
                     </button>
                     <div class="collapse navbar-collapse"
-                        id="navbarSupportedContent">
-                        <div class="container">
+                        id="navbarSupportedContent" id="dvColapsoNV">
+                        <div class="container" id="dvContenedorInternoNV">
                             <ul
-                                class="nav nav-pills me-auto mb-2 mb-lg-0 d-flex justify-content-center">
-                                <li class="nav-item">
+                                class="nav nav-pills me-auto mb-2 mb-lg-0 d-flex justify-content-center"
+                                id="ulMenuNV">
+                                <li class="nav-item" id="liFormalNV">
                                     <a class="nav-link" aria-current="page"
-                                        href="#">Formal</a>
+                                        href="#" id="aFormalNV">Formal</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Deportivo</a>
+                                <li class="nav-item" id="liDeportivoNV">
+                                    <a class="nav-link" href="#"
+                                        id="aDeportivoNV">Deportivo</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Urbano</a>
+                                <li class="nav-item" id="liUrbanoNV">
+                                    <a class="nav-link" href="#"
+                                        id="aUrbanoNV">Urbano</a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown" id="liDropdownNV">
                                     <a class="nav-link dropdown-toggle" href="#"
                                         role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
+                                        aria-expanded="false" id="aOtrosNV">
                                         Otros
                                     </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item"
-                                                href="#">Botas</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="#">Chancletas</a></li>
+                                    <ul class="dropdown-menu"
+                                        id="ulDropdownMenuNV">
+                                        <li><a class="dropdown-item" href="#"
+                                                id="aBotasNV">Botas</a></li>
+                                        <li><a class="dropdown-item" href="#"
+                                                id="aChancletasNV">Chancletas</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                        <form class="d-flex" role="search">
+                        <form class="d-flex" role="search" id="formBuscarNV">
                             <input class="form-control me-2" type="search"
-                                placeholder="Buscar" aria-label="Search">
+                                placeholder="Buscar" aria-label="Search"
+                                id="inputBuscarNV">
                             <button class="btn btn-outline-primary"
-                                type="submit"><i
-                                    class="bi bi-search"></i></button>
+                                type="submit" id="btnBuscarNV"><i
+                                    class="bi bi-search"
+                                    id="iIconoBuscarNV"></i></button>
                         </form>
                     </div>
                 </div>
