@@ -1,0 +1,14 @@
+body{
+    background-color: black import !important;
+}
+
+/* Cambia colores del tag <a> del navbar */
+.nav-item a, .dropdown-item {
+    color: #00000081; /* Cambia el color de la letra a blanco */
+}
+
+.dropdown-item:hover {
+    background-color: #007bff !important; /* Cambia esto al color azul que prefieras */
+    color: white !important; /* Cambia el color del texto a blanco para mejor contraste */
+}
+
