@@ -3,29 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>calzado</title>
+        <title>calzado</title>
         <!--Propio-->
         <link rel="stylesheet" href="./css/estilos.css">
-        <title>Calzado</title>
-      <!--BootStrap-->
-      
-        <link
+        <!--BootStrap-->
+
+        <!--<link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous">
+            crossorigin="anonymous">-->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
             rel="stylesheet">
 
-    </head>
+        <!-- Footer-->
+        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
+        <!-- CSS de Bootstrap -->
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- JavaScript de Bootstrap y jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
     <body>
 
         <!--NabVar-->
-        <div class="container mt-3" style="z-index: 3;" id="dvContainerNV">
-            <nav class="navbar navbar-expand-lg  rounded shadow"
-                style="background-color: #e3f2fd;" id="nvBarraNV">
+        <div class="container mt-3" style="z-index: 10; " id="dvContainerNV">
+            <nav class="navbar navbar-expand-lg rounded shadow"
+                style="background-color: #e3f2fd; " id="nvBarraNV">
                 <div class="container-fluid bg-" id="dvFluidNV">
                     <!--Btn con img-->
                     <a class="navbar-brand" href="#" id="aLogoNV">
@@ -45,9 +55,11 @@
                     </button>
                     <div class="collapse navbar-collapse"
                         id="navbarSupportedContent" id="dvColapsoNV">
-                        <div class="container" id="dvContenedorInternoNV">
+                        <div
+                            class="container navbar-collapse justify-content-center"
+                            id="dvContenedorInternoNV">
                             <ul
-                                class="nav nav-pills me-auto mb-2 mb-lg-0 d-flex justify-content-center"
+                                class="nav nav-pills"
                                 id="ulMenuNV">
                                 <li class="nav-item" id="liFormalNV">
                                     <a class="nav-link" aria-current="page"
@@ -91,6 +103,336 @@
             </nav>
         </div>
         <!--NabVarFinish-->
+        <!--Slider-->
+        <div class="container">
+            <div id="miCarrusel" class="carousel slide rounded shadow mt-3"
+                data-ride="carousel">
+                <!-- Indicadores -->
+                <ol class="carousel-indicators">
+                    <li data-target="#miCarrusel" data-slide-to="0"
+                        class="active"></li>
+                    <li data-target="#miCarrusel" data-slide-to="1"></li>
+                    <li data-target="#miCarrusel" data-slide-to="2"></li>
+                    <!-- Nuevo indicador para el tercer slide -->
+                </ol>
+
+                <!-- Contenedor de los slides -->
+                <div class="carousel-inner"
+                    style="z-index: -3;background-color: #e3f2fd;  ">
+                    <!-- Slider 1 -->
+                    <div class="carousel-item active">
+                        <!-- Contenido del Slider 1 aquí -->
+                        <div
+                            class="d-flex align-items-center shadow"
+                            id="slider1In">
+                            <div
+                                class="w-50 rounded d-flex justify-content-center align-items-center"
+                                style="background-color: #f5f5f5; ">
+                                <img src="./img/sldImg1.png" alt="...">
+                            </div>
+                            <div
+                                class="w-50 rounded d-flex flex-column justify-content-center align-items-start text-white p-5"
+                                style="background-color: #617fad; height: 500px;">
+                                <h1>¡Gran oferta del 40%!</h1>
+                                <p>Disponible en todas las tallas</p>
+                                <div>
+                                    <label class="m-1">A tan solo:</label>
+                                    <label class="m-1">$ 60,50</label>
+                                    <button type="button"
+                                        class="btn btn-primary shadow m-3">Compralo
+                                        &nbsp;<i
+                                            class="bi bi-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider 2 -->
+                    <div class="carousel-item">
+                        <!-- Tu Slider 2 aquí -->
+                        <div class="d-flex align-items-center shadow"
+                            id="slider2In">
+                            <div
+                                class="w-50 rounded d-flex justify-content-center align-items-center"
+                                style="background-color: #f5f5f5;">
+                                <img src="./img/sldImg2.png" alt="...">
+                            </div>
+                            <div
+                                class="w-50 rounded d-flex flex-column justify-content-center align-items-start text-white p-5"
+                                style="background-color: #617fad; height: 500px;">
+                                <h1>¡Gran oferta del 50%!</h1>
+                                <p>Disponible en todas las tallas</p>
+                                <div>
+                                    <label class="m-1">A tan solo:</label>
+                                    <label class="m-1">$ 70,75</label>
+                                    <button type="button"
+                                        class="btn btn-primary shadow m-3">Compralo
+                                        &nbsp;<i
+                                            class="bi bi-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slider 3 -->
+                    <div class="carousel-item ">
+                        <!-- Tu Slider 3 aquí -->
+                        <div class="d-flex align-items-center shadow"
+                            id="slider3In">
+                            <div
+                                class="w-50 rounded d-flex justify-content-center align-items-center"
+                                style="background-color: #f5f5f5;">
+                                <img src="./img/sldImg3.png" alt="...">
+                            </div>
+                            <div
+                                class="w-50 rounded d-flex flex-column justify-content-center align-items-start text-white p-5"
+                                style="background-color: #617fad; height: 500px;">
+                                <h1>¡Gran oferta del 50%!</h1>
+                                <p>Disponible en todas las tallas</p>
+                                <div>
+                                    <label class="m-1">A tan solo:</label>
+                                    <label class="m-1">$ 70,75</label>
+                                    <button type="button"
+                                        class="btn btn-primary shadow m-3">Compralo
+                                        &nbsp;<i
+                                            class="bi bi-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles -->
+                <a class="carousel-control-prev" href="#miCarrusel"
+                    role="button"
+                    data-slide="prev">
+                    <span class="carousel-control-prev-icon"
+                        aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#miCarrusel"
+                    role="button"
+                    data-slide="next">
+                    <span class="carousel-control-next-icon"
+                        aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+            </div>
+        </div>
+        <!--SliderFinish-->
+        <!-- Tarjetas-->
+
+        <div class="container my-5">
+            <div class="row">
+                <!-- Tarjeta 1 -->
+                <div class="col-md-4 my-2">
+                    <div class="card shadow border rounded" id="divCard1Crd">
+                        <img src="./img/crdImg1.jpg" class="card-img-top"
+                            alt="..."
+                            id="imgCardImg1Crd">
+                        <div class="card-body border" id="divCardBody1Crd"
+                            style="height: 200px; background-color: #e3f2fd;">
+                            <div id="divCardTitle1Crd" style="height: 8%;">
+                                <h5 class="card-title" id="h5CardTitle1Crd">Puma
+                                    Caven
+                                    2.0 Unisex</h5>
+                            </div>
+                            <div class="card-text mt-4" id="divCardText1Crd"
+                                style="height: 55%;">
+                                <p id="pCardDesc1Crd">Se inspiran en la vida
+                                    universitaria de los años 90 para crear un
+                                    diseño que evoca con nostalgia la estética
+                                    retro.</p>
+                            </div>
+                            <div class="text-right mt-2" id="divCardAction1Crd">
+                                <label class="mr-2"
+                                    id="lblPrice1Crd">150.25$</label>
+                                <a href="#" class="btn btn-primary"
+                                    id="aCardLink1Crd">Conoce Más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="col-md-4 my-2">
+                    <div class="card shadow border rounded" id="divCard2Crd">
+                        <img src="./img/crdImg2.jpg" class="card-img-top"
+                            alt="..."
+                            id="imgCardImg2Crd">
+                        <div class="card-body border" id="divCardBody2Crd"
+                            style="height: 200px; background-color: #e3f2fd;">
+                            <div id="divCardTitle2Crd" style="height: 8%;">
+                                <h5 class="card-title" id="h5CardTitle2Crd">
+                                    Nike
+                                    Air
+                                    Max</h5>
+                            </div>
+                            <div class="card-text mt-4" id="divCardText2Crd"
+                                style="height: 55%;">
+                                <p id="pCardDesc2Crd">La comodidad y estilo de
+                                    los
+                                    años
+                                    90 con la tecnología moderna.</p>
+                            </div>
+                            <div class="text-right mt-2" id="divCardAction2Crd">
+                                <label class="mr-2"
+                                    id="lblPrice2Crd">120.25$</label>
+                                <a href="#" class="btn btn-primary"
+                                    id="aCardLink2Crd">Conoce Más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 finsih -->
+                <!-- Tarjeta 3 -->
+                <div class="col-md-4 my-2">
+                    <div class="card shadow border rounded" id="divCard3Crd">
+                        <img src="./img/crdImg3.jpg" class="card-img-top"
+                            alt="..."
+                            id="imgCardImg3Crd">
+                        <div class="card-body border" id="divCardBody3Crd"
+                            style="height: 200px; background-color: #e3f2fd;">
+                            <div id="divCardTitle3Crd" style="height: 8%;">
+                                <h5 class="card-title"
+                                    id="h5CardTitle3Crd">Adidas
+                                    Adi2000
+                                </h5>
+                            </div>
+                            <div class="card-text mt-4" id="divCardText3Crd"
+                                style="height: 55%;">
+                                <p id="pCardDesc3Crd">Parte superior de piel
+                                    suave
+                                    en colores de
+                                    inspiración universitaria y fusiona la
+                                    estética
+                                    de
+                                    principios de los 2000.</p>
+                            </div>
+                            <div class="text-right mt-2" id="divCardAction3Crd">
+                                <label class="mr-2"
+                                    id="lblPrice3Crd">164.99$</label>
+                                <a href="#" class="btn btn-primary"
+                                    id="aCardLink3Crd">Conoce Más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 3 finsih -->
+
+            </div>
+        </div>
+        <!-- Tarjetas finish -->
+
+        <!--Footer-->
+        <footer class="bg-dark borde" id="tempaltemo_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 pt-5">
+                        <h2
+                            class="h2 text-light border-bottom pb-3 border-light logo">
+                            <img src="/img/Logo1.png" class="mr-2 mb-2"
+                                alt="Mundo del calzado"
+                                width="50" height="50" id="imgLogoNV">
+                            Tu Calzado
+                            Ideal&nbsp</h2>
+                        <ul
+                            class="list-unstyled text-light footer-link-list">
+                            <li>
+                                <i
+                                    class="fas fa-map-marker-alt fa-fw"></i>&nbsp
+                                Salceo, Cotopaxi, Ecuador
+                            </li>
+                            <li>
+                                <i class="fa fa-phone fa-fw"></i>
+                                <a class="text-decoration-none"
+                                    href="tel:010-020-0340">&nbsp0987654321</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <a class="text-decoration-none"
+                                    href="mailto:info@company.com">&nbspZapatosSalcedo@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 pt-5">
+                        <h2
+                            class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
+                        <ul
+                            class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none"
+                                    href="#">Deportivo</a></li>
+                            <li><a class="text-decoration-none"
+                                    href="#">Casual</a></li>
+                            <li><a class="text-decoration-none"
+                                    href="#">Formal</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 pt-5">
+                        <h2
+                            class="h2 text-light border-bottom pb-3 border-light">Desarrolladores</h2>
+                        <ul
+                            class="list-unstyled text-light footer-link-list">
+                            <li><i class="bi bi-github mr-2"></i><a
+                                    class="text-decoration-none"
+                                    href="https://github.com/Xriva18">&nbspGuanoluisa
+                                    Fernando</a></li>
+                            <li><i class="bi bi-github mr-2"></i><a
+                                    class="text-decoration-none"
+                                    href="https://github.com/">&nbspPallango
+                                    Brayan</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="row text-light mb-4">
+                    <div class="col-12 mb-3">
+                        <div
+                            class="w-100 my-3 border-top border-light"></div>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <h2
+                            class="h2 text-light border-bottom pb-3 border-light">Siguenos:</h2>
+                        <ul class="list-inline text-left footer-icons">
+                            <li
+                                class="list-inline-item border border-light rounded-circle text-center">
+                                <a
+                                    class="text-light text-decoration-none"
+                                    target="_blank"
+                                    href="http://facebook.com/"><i
+                                        class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                            </li>
+                            <li
+                                class="list-inline-item border border-light rounded-circle text-center">
+                                <a
+                                    class="text-light text-decoration-none"
+                                    target="_blank"
+                                    href="https://www.instagram.com/"><i
+                                        class="fab fa-instagram fa-lg fa-fw"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Zapatos | © 2024 Todos los derechos
+                                reservados
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--Footer finish-->
+
         <!--Scripts-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -100,5 +442,6 @@
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="./js/navbar.js">
             </script>
+
     </body>
 </html>
