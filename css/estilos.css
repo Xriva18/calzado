@@ -13,8 +13,8 @@ body{
 }
 
 .carousel-item img {
-    width: 180px;
-    height: 180px;
+    width: 500px;
+    height: 500px;
     border-bottom-right-radius: calc(.25rem - 1px);
 }
 
