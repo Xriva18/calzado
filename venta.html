@@ -41,8 +41,8 @@
     <body>
 
         <div class="container ">
-            <div class="row m-3">
-                <div class="col-lg-5 mt-5">
+            <div class="row m-3"> <!---id-->
+                <div class="col-lg-5 mt-2">
                     <div class="card mb-3 shadow border rounded">
                         <img class="card-img img-fluid"
                             src="assets/img/image3.png" alt="Card image cap"
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 mt-5">
+                <div class="col-lg-7 mt-2">
                     <div class="card">
                         <div class="card-body shadow rounded p-4">
                             <h1 class="h2">Adidas Advantage</h1>
@@ -182,7 +182,8 @@
                                         class="btn btn-primary btn-lg"
                                         name="submit"
                                         value="addtocard">Añade al
-                                        carrito</button>
+                                        carrito<i
+                                            class="bi bi-cart3 ml-2"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -201,35 +202,7 @@
         <!-- Start Slider Script -->
         <script src="assets/js/slick.min.js"></script>
         <script>
-        $('#carousel-related-product').slick({
-            infinite: true,
-            arrows: false,
-            slidesToShow: 4,
-            slidesToScroll: 3,
-            dots: true,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 3
-                    }
-                }
-            ]
-        });
+        
     </script>
 
     </body>
