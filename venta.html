@@ -39,276 +39,157 @@
     </head>
 
     <body>
-        <!--<nav class="navbar navbar-expand-lg navbar-light shadow">
-          
-        </nav>-->
 
-        <!-- Modal -->
-        <div class="modal fade bg-white" id="templatemo_search" tabindex="-1"
-            role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="w-100 pt-1 mb-5 text-right">
-                    <button type="button" class="btn-close"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action method="get"
-                    class="modal-content modal-body border-0 p-0">
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control"
-                            id="inputModalSearch" name="q"
-                            placeholder="Search ...">
-                        <button type="submit"
-                            class="input-group-text bg-primary text-light">
-                            <i class="fa fa-fw fa-search text-white"></i>
-                        </button>
+        <div class="container ">
+            <div class="row m-3">
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3 shadow border rounded">
+                        <img class="card-img img-fluid"
+                            src="assets/img/image3.png" alt="Card image cap"
+                            id="product-detail">
                     </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Open Content -->
-        <section class="bg-light">
-            <div class="container pb-5">
-                <div class="row">
-                    <div class="col-lg-5 mt-5">
-                        <div class="card mb-3  shadow border rounded">
-                            <img class="card-img img-fluid"
-                                src="assets/img/image3.png" alt="Card image cap"
-                                id="product-detail">
+                    <div class="row">
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button"
+                                data-bs-slide="prev">
+                                <i class="text-dark fas fa-chevron-left"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
                         </div>
-                        <div class="row">
-                            <!--Start Controls-->
-                            <div class="col-1 align-self-center">
-                                <a href="#multi-item-example" role="button"
-                                    data-bs-slide="prev">
-                                    <i
-                                        class="text-dark fas fa-chevron-left"></i>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </div>
-                            <!--End Controls-->
-                            <!--Start Carousel Wrapper-->
-                            <div id="multi-item-example"
-                                class="col-10 carousel slide carousel-multi-item"
-                                data-bs-ride="carousel">
-                                <!--Start Slides-->
-                                <div class="carousel-inner product-links-wap"
-                                    role="listbox">
-                                    <!--First slide-->
-                                    <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col">
-                                                <a href="#">
-                                                    <img
-                                                        class="card-img img-fluid shadow border rounded"
-                                                        style="height: 120px;"
-                                                        src="assets/img/image3.png"
-                                                        alt="Product Image 1">
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a href="#">
-                                                    <img
-                                                        class="card-img img-fluid shadow border rounded"
-                                                        style="height: 120px;"
-                                                        src="assets/img/image4.png"
-                                                        alt="Product Image 2">
-                                                </a>
-                                            </div>
-                                            <div class="col">
-                                                <a href="#">
-                                                    <img
-                                                        class="card-img img-fluid shadow border rounded"
-                                                        style="height: 120px;"
-                                                        src="assets/img/image8.png"
-                                                        alt="Product Image 3">
-                                                </a>
-                                            </div>
+                        <div id="multi-item-example"
+                            class="col-10 carousel slide carousel-multi-item"
+                            data-bs-ride="carousel">
+                            <div class="carousel-inner product-links-wap"
+                                role="listbox">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="#">
+                                                <img
+                                                    class="card-img img-fluid shadow border rounded"
+                                                    style="height: 120px;"
+                                                    src="assets/img/image3.png"
+                                                    alt="Product Image 1">
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#">
+                                                <img
+                                                    class="card-img img-fluid shadow border rounded"
+                                                    style="height: 120px;"
+                                                    src="assets/img/image4.png"
+                                                    alt="Product Image 2">
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#">
+                                                <img
+                                                    class="card-img img-fluid shadow border rounded"
+                                                    style="height: 120px;"
+                                                    src="assets/img/image8.png"
+                                                    alt="Product Image 3">
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                <!--End Slides-->
                             </div>
-                            <!--End Carousel Wrapper-->
-                            <!--Start Controls-->
-                            <div class="col-1 align-self-center">
-                                <a href="#multi-item-example" role="button"
-                                    data-bs-slide="next">
-                                    <i
-                                        class="text-dark fas fa-chevron-right"></i>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                            <!--End Controls-->
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button"
+                                data-bs-slide="next">
+                                <i class="text-dark fas fa-chevron-right"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
-                    <!-- col end -->
-                    <div class="col-lg-7 mt-5">
-                        <div class="card">
-                            <div class="card-body shadow rounded">
-                                <h1 class="h2">Adidas Advantage</h1>
-                                <p class="h3 py-2">$125.00</p>
-                                <p class="py-2">
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-warning"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <span
-                                        class="list-inline-item text-dark">Rating
-                                        4.8 | 36 Comments</span>
-                                </p>
+                </div>
+                <div class="col-lg-7 mt-5">
+                    <div class="card">
+                        <div class="card-body shadow rounded p-4">
+                            <h1 class="h2">Adidas Advantage</h1>
+                            <p class="h3 py-2">$125.00</p>
+                            <h6>Descripción:</h6>
+                            <p class="text-justify mt-2 mb-4 ">Estos tenis
+                                adidas con
+                                cordones para niños son
+                                perfectos para el estudio, los entrenamientos y
+                                para todo tipo de actividades de ocio. Traen un
+                                exterior sintético suave para una sensación de
+                                comodidad. La suela de caucho brinda una
+                                tracción confiable. Hecho con una serie de
+                                materiales reciclados, este exterior incorpora
+                                al menos un 50 % de contenido reciclado. Este
+                                producto representa solo una de nuestras
+                                soluciones para acabar con los residuos
+                                plásticos.</p>
 
-                                <h6>Descripción:</h6>
-                                <p>Estos tenis adidas con cordones para niños
-                                    son perfectos para el estudio, los
-                                    entrenamientos y para todo tipo de
-                                    actividades de ocio. Traen un exterior
-                                    sintético suave para una sensación de
-                                    comodidad. La suela de caucho brinda una
-                                    tracción confiable. Hecho con una serie de
-                                    materiales reciclados, este exterior
-                                    incorpora al menos un 50 % de contenido
-                                    reciclado. Este producto representa solo una
-                                    de nuestras soluciones para acabar con los
-                                    residuos plásticos.</p>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <h6>Colores :</h6>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <p class="text-muted"><strong>White /
-                                                Black</strong></p>
-                                    </li>
-                                </ul>
-
-                                <h6>Detalles del producto:</h6>
-                                <ul class="list-unstyled pb-3">
-                                    <li>Ajuste clásico</li>
-                                    <li>Sistema de amarre de cordones</li>
-                                    <li>Exterior sintético</li>
-                                    <li>Forro interno textil</li>
-                                    <li>Suela de caucho</li>
-                                    <li>El exterior contiene al menos un 50 % de
-                                        material reciclado</li>
-
-                                </ul>
-
-                                <form action method="GET">
-                                    <input type="hidden" name="product-title"
-                                        value="Activewear">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <ul class="list-inline pb-3">
-                                                <li
-                                                    class="list-inline-item">Talla
-                                                    : <input type="hidden"
-                                                        name="product-size"
-                                                        id="product-size"
-                                                        value="S"></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size text-white">26</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">26</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">27</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">27</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">28</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">29</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">29</span></li>
-                                            </ul>
-                                            <ul class="list-inline pb-3">
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">37</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">38</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">39</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">41</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">42</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">30</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary btn-size">35</span></li>
-                                            </ul>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="d-inline-block pb-3">
+                                        <div
+                                            class="d-inline-block mr-3 mb-3">Tallas:
+                                            <input type="hidden"
+                                                name="product-size"
+                                                id="product-size"
+                                                value="S">
                                         </div>
-                                        <div class="col-auto">
-                                            <ul class="list-inline pb-3">
-                                                <li
-                                                    class="list-inline-item text-right">
-                                                    Quantity
-                                                    <input type="hidden"
-                                                        name="product-quanity"
-                                                        id="product-quanity"
-                                                        value="1">
-                                                </li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary"
-                                                        id="btn-minus">-</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="badge bg-secondary"
-                                                        id="var-value">1</span></li>
-                                                <li
-                                                    class="list-inline-item"><span
-                                                        class="btn btn-primary"
-                                                        id="btn-plus">+</span></li>
-                                            </ul>
+                                        <div class="d-inline-block">
+                                            <span
+                                                class="btn btn-primary btn-size text-white m-1">36</span>
+                                            <span
+                                                class="btn btn-primary btn-size text-white m-1">37</span>
+                                            <span
+                                                class="btn btn-primary btn-size text-white m-1">38</span>
+                                            <span
+                                                class="btn btn-primary btn-size text-white m-1">39</span>
+                                            <span
+                                                class="btn btn-primary btn-size text-white m-1">40</span>
+                                            <span
+                                                class="btn btn-primary btn-size text-white m-1">41</span>
+                                            <span
+                                                class="btn btn-primary btn-size text-white m-1">42</span>
                                         </div>
                                     </div>
-                                    <div class="row pb-3">
-                                        <div class="col d-grid">
-                                            <button type="submit"
-                                                class="btn btn-primary btn-lg"
-                                                name="submit"
-                                                value="buy">Buy</button>
-                                        </div>
-                                        <div class="col d-grid">
-                                            <button type="submit"
-                                                class="btn btn-primary btn-lg"
-                                                name="submit"
-                                                value="addtocard">Add To
-                                                Cart</button>
-                                        </div>
-                                    </div>
-                                </form>
-
+                                </div>
+                            </div>
+                            <div
+                                class="col-auto d-flex justify-content-center align-items-center mt-2 mb-2">
+                                <div>
+                                    <ul class="list-inline">
+                                        <li
+                                            class="list-inline-item text-right">
+                                            Cantidad:
+                                            <input type="hidden"
+                                                name="product-quanity"
+                                                id="product-quanity"
+                                                value="1">
+                                        </li>
+                                        <li class="list-inline-item"><span
+                                                class="btn btn-primary"
+                                                id="btn-minus">-</span></li>
+                                        <li class="list-inline-item"><span
+                                                class="badge bg-white text-dark"
+                                                id="var-value">1</span></li>
+                                        <li class="list-inline-item"><span
+                                                class="btn btn-primary"
+                                                id="btn-plus">+</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-grid">
+                                    <button type="submit"
+                                        class="btn btn-primary btn-lg"
+                                        name="submit"
+                                        value="addtocard">Añade al
+                                        carrito</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Close Content -->
-
-        <!-- Start Article -->
-
-        <!-- Start Footer -->
-
-        <!-- End Footer -->
-
+        </div>
         <!-- Start Script -->
         <script src="assets/js/jquery-1.11.0.min.js"></script>
         <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
@@ -350,7 +231,6 @@
             ]
         });
     </script>
-        <!-- End Slider Script -->
 
     </body>
 
