@@ -27,16 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
                                         Otros
                                     </a>
                                     <ul class="dropdown-menu" id="ulDropdownMenuNV">
-                                        <li><a class="dropdown-item" href="#" id="aBotasNV">Contáctanos</a></li>
-                                        <li><a class="dropdown-item" href="#" id="aChancletasNV">¿Quiénes somos?</a></li>
+                                        <li><a class="dropdown-item" href="#" >Contáctanos</a></li>
+                                        <li><a class="dropdown-item" href="#" >¿Quiénes somos?</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                        <form class="d-flex" role="search" id="formBuscarNV">
-                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="inputBuscarNV">
-                            <button class="btn btn-outline-primary" type="submit" id="btnBuscarNV"><i class="bi bi-search" id="iIconoBuscarNV"></i></button>
-                        </form>
+                        <div class="d-flex"  id="carritoNV">
+                            <button class="btn btn-outline-primary" type="submit" id="btnBuscarNV"><i class="bi bi-cart3" id="iIconoBuscarNV"></i></button>
+                        </div>
                     </div>
                 </div>
             </nav>

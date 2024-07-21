@@ -19,7 +19,7 @@ $(document).ready(function () {
 function card() {
     $('#cardDeportivo').empty();
     for (var i = 0; i < zapatillas.length; i++) {
-        var ConoceMas = '<a href="#" class="btn btn-primary" onclick="imprimirAlerta(\'' + zapatillas[i].id + '\');">Conoce Más</a>';
+        var ConoceMas = '<a href="./conoceMas.html" class="btn btn-primary" onclick="imprimirAlerta(\'' + zapatillas[i].id + '\');">Conoce Más</a>';
         var newTr =
             '<div class="col-md-4 my-2">' +
             '<div class="card shadow border rounded">' +
@@ -44,7 +44,7 @@ function card() {
 }
 
 function imprimirAlerta(id) {
-    //$('#cardDeportivo').hide();
     alert(id);
+
 }
 

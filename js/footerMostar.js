@@ -1,3 +1,6 @@
+
+
+//Ver css del redes sociales del footer
 document.addEventListener("DOMContentLoaded", function () {
     var footer = document.createElement("div");
     footer.innerHTML = `
