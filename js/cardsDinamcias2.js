@@ -16,7 +16,7 @@ $(document).ready(function () {
     recorrerArray();
 });
 
-function recorrerArray() {
+/*function recorrerArray() {
     $('#cardDeportivo').empty();
     for (var i = 0; i < zapatillas.length; i++) {
         newTr =
@@ -42,7 +42,7 @@ function recorrerArray() {
         //xd
         $('#cardDeportivo').append(newTr);
     }
-}
+}*/
 function recorrerArray() {
     $('#cardDeportivo').empty();
     for (var i = 0; i < zapatillas.length; i++) {
