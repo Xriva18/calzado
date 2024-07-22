@@ -67,7 +67,9 @@ function imprimirAlerta(j) {
         top: 0,
         behavior: 'smooth'
     });
-    var newTr2 = `<div class="container" style="margin-bottom:80px;">
+    var newTr2 = `
+        <script src="assets/js/templatemo.js"></script>
+    <div class="container" style="margin-bottom:80px;">
             <div class="row m-3"> <!---id-->
                 <div class="col-lg-5 mt-2">
                     <div class="card mb-3 shadow border rounded">
