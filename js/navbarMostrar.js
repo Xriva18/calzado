@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </li>
                                 <li class="nav-item" id="liDeportivoNV">
                                     <a class="nav-link" href="./HDeportivo.html"
-                                        id="aDeportivoNV">Deportivo</a>
+                                        id="aDeportivoNV" onclick="tipoZapato(zapatillas)">Deportivo</a>
                                 </li>
                                 <li class="nav-item dropdown" id="liDropdownNV">
                                     <a class="nav-link dropdown-toggle" href="#"
@@ -64,4 +64,5 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
     document.body.insertBefore(navbar, document.body.firstChild);
+
 });

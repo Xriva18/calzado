@@ -1,7 +1,7 @@
 
-
+//propio de zapatillas
 $(document).ready(function () {
-    card(zapatillas);//onclik en el navbar
+    card(zapatillas);
 });
 
 var productosGlobales = []; // Variable global para almacenar los productos
