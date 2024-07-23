@@ -1,4 +1,5 @@
 
+
 $(document).ready(function () {
     card(zapatillas);
 });
@@ -42,6 +43,7 @@ function card(productos) {
 }
 
 function imprimirAlerta(j) {
+    var productos = zapatillas;
     $('#cardDeportivoS').show();
     $('#cardDeportivoS').empty();
     window.scrollTo({
