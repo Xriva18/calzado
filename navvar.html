@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calzado</title>
+        <title>ParaCarrito</title>
         <!--Propio-->
         <link rel="stylesheet" href="./css/estilos.css">
         <!--BootStrap-->
@@ -30,17 +30,15 @@
         <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!---Propios-->
-        <script type="text/javascript" src="js/navbarMostrar.js"></script>
     </head>
     <body>
 
-        <!--NabVar-->
         <div class="container mt-3" style="z-index: 10; " id="dvContainerNV">
             <nav class="navbar navbar-expand-lg rounded shadow"
                 style="background-color: #e3f2fd; " id="nvBarraNV">
                 <div class="container-fluid bg-" id="dvFluidNV">
                     <!--Btn con img-->
-                    <a class="navbar-brand" href="#" id="aLogoNV">
+                    <a class="navbar-brand" href="./index.html" id="aLogoNV">
                         <img src="./img/Logo1.png" alt="Mundo del calzado"
                             width="50" height="50" id="imgLogoNV">
                     </a>
@@ -60,9 +58,7 @@
                         <div
                             class="container navbar-collapse justify-content-center"
                             id="dvContenedorInternoNV">
-                            <ul
-                                class="nav nav-pills"
-                                id="ulMenuNV">
+                            <ul class="nav nav-pills" id="ulMenuNV">
                                 <li class="nav-item" id="liFormalNV">
                                     <a class="nav-link" aria-current="page"
                                         href="#" id="aFormalNV">Formal</a>
@@ -79,29 +75,35 @@
                                     </a>
                                     <ul class="dropdown-menu"
                                         id="ulDropdownMenuNV">
-                                        <li><a class="dropdown-item" href="#"
-                                                id="aBotasNV">Contáctanos</a></li>
-                                        <li><a class="dropdown-item" href="#"
-                                                id="aChancletasNV">¿Quiénes
+                                        <li><a class="dropdown-item"
+                                                href="#">Contáctanos</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="#">¿Quiénes
                                                 somos?</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                        <form class="d-flex" role="search" id="formBuscarNV">
-                            <input class="form-control me-2" type="search"
-                                placeholder="Buscar" aria-label="Search"
-                                id="inputBuscarNV">
-                            <button class="btn btn-outline-primary"
+                        <div class="d-flex" id="carritoNV">
+                            <a href="#" class="btn btn-outline-primary d-flex"
                                 type="submit" id="btnBuscarNV"><i
-                                    class="bi bi-search"
-                                    id="iIconoBuscarNV"></i></button>
-                        </form>
+                                    class="bi bi-cart3"></i><span class="ml-2"
+                                    id="cuenta-carrito">0</span></a>
+                        </div>
                     </div>
                 </div>
             </nav>
         </div>
+
         <!--NabVarFinish-->
+        <!-- Tarjetas-->
+        <div class="container my-3">
+            <div class="d-flex">
+                <!-- Tarjetas dinámicas -->
+                <div id="cardDeportivo" class="row"></div>
+                <!-- Tarjetas dinámicas terminan -->
+            </div>
+        </div>
         <!--Scripts-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
