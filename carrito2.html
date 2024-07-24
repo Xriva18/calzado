@@ -25,7 +25,6 @@
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!---Propios-->
         <script type="text/javascript" src="./js/footerMostar.js"></script>
-        <script src="./js/carrito.js"></script>
     </head>
     <body>
         <!--Navbar-->
@@ -37,7 +36,7 @@
 
                     <a class="navbar-brand" href="./index.html" id="aLogoNV">
                         <img src="./img/Logo1.png" alt="Mundo del calzado"
-                            width="50" height="50" id="imgLogoNV">
+                            width="50" height="50" id="imgLogoNV"></img>
                     </a>
                     <button class="navbar-toggler" type="button"
                         data-bs-toggle="collapse"
@@ -97,49 +96,52 @@
         <!--Navbar-->
         <!--Carrito-->
         <div class="container my-3">
-            <div class="d-flex">
-                <div id="productos-container" class="row">
-                </div>
-            </div>
-        </div>
-
-        <!--Carrito-->
-        <div class="container mb-3">
             <div class="row justify-content-center">
-                <div class="col-auto p-4 border rounded shadow">
+                <div class="col-auto">
                     <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col"
-                                        class="text-center">Art.</th>
-                                    <th scope="col"
-                                        class="text-center">&nbsp;</th>
-                                    <th scope="col"
-                                        class="text-center">Nombre</th>
-                                    <th scope="col"
-                                        class="text-center">Talla</th>
-                                    <th scope="col"
-                                        class="text-center">Cantidad</th>
-                                    <th scope="col"
-                                        class="text-center">Precio</th>
-                                </tr>
-                            </thead>
-                            <tbody id="productos-table-body">
-                                <!-- Las filas se añadirán aquí dinámicamente -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="text-right m-2">
-                        <button
-                            class="btn button bg-primary text-white shadow-lg">Facturar</button>
-                        <button
-                            class="btn btn-white">Cancelar</button>
-                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"class="text-center">Art.</th>
+                                <th scope="col"class="text-center">&nbsp;</th>
+                                <th scope="col" class="text-center">Nombre</th>
+                                <th scope="col"class="text-center">Talla</th>
+                                <th scope="col"class="text-center">Cantidad</th>
+                                <th scope="col"class="text-center">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="productos-container">
+                                <th scope="row">1</th>
+                                <td><img src="./img/Deportivo/depImg1.jpg" alt="Image" style="height: 50px;"></td>
+                                <td>PUMA California Tol</td>
+                                <td class="text-center">39</td>
+                                <td class="text-center">
+                                        <div>
+                                            <button class="btn button bg-primary text-white">+</button>
+                                            <span class="ml-3 mr-3">0</span>
+                                            <button class="btn button bg-primary text-white">-</button>
+                                        </div>
+
+                                </td>
+                                <td class="text-center">$ 39,50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 </div>
             </div>
         </div>
         <!--carrito finsih-->
+        <footer class="bg-dark borde" id="tempaltemo_footer">
+            <div class="container">
+
+                <div class="row" id="Ver footer">
+
+                </div>
+            </div>
+        </footer>
+        <!---->
         <!--Scripts-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

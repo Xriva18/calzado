@@ -14,9 +14,22 @@ function verCarrito() {
 
         productos.forEach((producto, index) => {
             var newTr2 = `
-                <div class="m-5">Talla = ${producto.talla} y cantidad ${producto.cantidad}</div>
+                              <tr>
+                                <th scope="row">${index + 1}</th>
+                                <td><img src="${producto.imagen1}" alt="Image" style="height: 50px;"></td>
+                                <td>${producto.nombre}</td>
+                                <td class="text-center">${producto.talla}</td>
+                                <td class="text-center">
+                                    <div>
+                                        <button class="btn button bg-primary text-white">+</button>
+                                        <span class="ml-3 mr-3">${producto.cantidad}</span>
+                                        <button class="btn button bg-primary text-white">-</button>
+                                    </div>
+                                </td>
+                                <td class="text-center">$ ${producto.precio}</td>
+                            </tr>
             `;
-            $('#productos-container').append(newTr2);
+            $('#productos-table-body').append(newTr2);
         });
     } else {
         alert("No hay productos en el carrito.");

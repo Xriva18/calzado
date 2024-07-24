@@ -1,6 +1,6 @@
 const zapatillas = [
     {
-        id: 'Z001', nombre: 'PUMA California Tol Logo',
+        id: 'Z001', nombre: 'PUMA California Tol',
         descripcion: 'Vas a estar cómodo dentro y fuera de la cancha con estas zapatillas retro, inspiradas en la cultura pop clásica y en el estilo de baloncesto.',
         descripcion2: 'Uno de los zapatos de entrenamiento casuales más llamativos de la línea PUMA Tennis, el PUMA California es un O.G. Estilo nacido en las canchas en 1983 del campeón argentino de Grand Slam Guillermo Vilas. Pronto llegó a las calles de California, donde adoptó su nuevo nombre y quedó consagrado para siempre en la historia de las zapatillas. Con la misma silueta clásica de California, esta versión presenta una parte superior perforada con un diseño de bloques de color único y el logotipo de PUMA.',
         talla1: 36, talla2: 37, talla3: 38, precio: 109.99, imagen1: './img/Deportivo/depImg1.jpg', imagen2: './img/Vista1.jpg', imagen3: './img/Vista2.jpg'
