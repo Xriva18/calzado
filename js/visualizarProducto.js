@@ -57,7 +57,7 @@ function imprimirAlerta(j) {
                         <div class="card">
                             <div class="card-body shadow rounded p-4">
                                 <h1 class="h2">${productos[j].nombre}</h1>
-                                <p class="h3 py-2">${productos[j].precio}</p>
+                                <p class="h3 py-2">$ ${productos[j].precio}</p>
                                 <h6>Descripción:</h6>
                                 <p class="text-justify mt-2 mb-4 ">${productos[j].descripcion2}</p>
                                 <div class="row">
@@ -65,14 +65,13 @@ function imprimirAlerta(j) {
                                         <div class="d-inline-block pb-3">
                                             <div class="d-inline-block mr-3 mb-3">Tallas:</div>
                                             <div class="d-inline-block">
-                                                <span class="btn btn-primary btn-size text-white m-1" id="talla36">36</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" id="talla37">37</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" id="talla38">38</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" id="talla39">39</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" id="talla40">40</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" id="talla41">41</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" id="talla42">42</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${productos[j].talla1}">${productos[j].talla1}</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${productos[j].talla2}">${productos[j].talla2}</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${productos[j].talla3}">${productos[j].talla3}</span>
                                             </div>
+                                            <input type="hidden" id="product-size" value="${productos[j].talla1}">
+                                            <input type="hidden" id="product-size" value="${productos[j].talla2}">
+                                            <input type="hidden" id="product-size" value="${productos[j].talla3}">
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +83,7 @@ function imprimirAlerta(j) {
                                                 <input type="hidden" name="product-quanity" id="product-quanity" value="1">
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-primary" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-white text-dark" id="var-value">1</span></li>
+                                            <li class="list-inline-item"><span class="badge bg-white text-dark" id="var-value">0</span></li>
                                             <li class="list-inline-item"><span class="btn btn-primary" id="btn-plus">+</span></li>
                                         </ul>
                                     </div>
@@ -104,36 +103,4 @@ function imprimirAlerta(j) {
         `;
     $('#cardDeportivoS').append(newTr2);
     $('#cardDeportivoS button').eq(0).on('click', () => agregarAlCarrito(productos[j]));
-
-
-
-
-    $('#talla36').hide();
-    $('#talla37').hide();
-    $('#talla38').hide();
-    $('#talla39').hide();
-    $('#talla40').hide();
-    $('#talla41').hide();
-    $('#talla42').hide();
-    if (productos[j].talla1 === '36' || productos[j].talla2 === '36' || productos[j].talla3 === '36') {
-        $('#talla36').show();
-    }
-    if (productos[j].talla1 === '37' || productos[j].talla2 === '37' || productos[j].talla3 === '37') {
-        $('#talla37').show();
-    }
-    if (productos[j].talla1 === '38' || productos[j].talla2 === '38' || productos[j].talla3 === '38') {
-        $('#talla38').show();
-    }
-    if (productos[j].talla1 === '39' || productos[j].talla2 === '39' || productos[j].talla3 === '39') {
-        $('#talla39').show();
-    }
-    if (productos[j].talla1 === '40' || productos[j].talla2 === '40' || productos[j].talla3 === '40') {
-        $('#talla40').show();
-    }
-    if (productos[j].talla1 === '41' || productos[j].talla2 === '41' || productos[j].talla3 === '41') {
-        $('#talla41').show();
-    }
-    if (productos[j].talla1 === '42' || productos[j].talla2 === '42' || productos[j].talla3 === '42') {
-        $('#talla42').show();
-    }
 }

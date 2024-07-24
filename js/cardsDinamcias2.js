@@ -31,7 +31,7 @@ function card(productos) {
                                 <p class="text-right font-weight-bold"></p>
                             </div>
                             <div class="text-right">
-                                <label class="mr-2">${productos[i].precio}</label>
+                                <label class="mr-2">${productos[i].precio} $</label>
                                 ${ConoceMas}
                             </div>
                         </div>

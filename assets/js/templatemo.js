@@ -45,6 +45,7 @@ $(document).ready(function () {
     $(".btn-size").addClass('btn-primary');
     $(this).removeClass('btn-primary');
     $(this).addClass('btn-secondary');
+    //console.log(this_val);
     return false;
   });
   // End roduct detail
