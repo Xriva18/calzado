@@ -75,19 +75,7 @@ function imprimirAlerta(j) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-auto d-flex justify-content-center align-items-center mt-2 mb-2">
-                                    <div>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item text-right">
-                                                Cantidad:
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
-                                            </li>
-                                            <li class="list-inline-item"><span class="btn btn-primary" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-white text-dark" id="var-value">0</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-primary" id="btn-plus">+</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <!-- Div acontador -->                                
                                 <div class="row">
                                     <div class="col d-grid">
                                         <button type="submit" class="btn btn-primary btn-lg" name="submit" value="addtocard">
