@@ -103,6 +103,10 @@ function imprimirAlerta(j) {
             </div>
         `;
     $('#cardDeportivoS').append(newTr2);
+    $('#cardDeportivoS button').eq(0).on('click', () => agregarAlCarrito(productos[j]));
+
+
+
 
     $('#talla36').hide();
     $('#talla37').hide();

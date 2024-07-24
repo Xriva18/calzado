@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var navbar = document.createElement("div");
     navbar.innerHTML = `
-         <div class="container mt-3" style="z-index: 10; " id="dvContainerNV">
+        <div class="container mt-3" style="z-index: 1; " id="dvContainerNV">
             <nav class="navbar navbar-expand-lg rounded shadow"
                 style="background-color: #e3f2fd; " id="nvBarraNV">
                 <div class="container-fluid bg-" id="dvFluidNV">
@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </li>
                                 <li class="nav-item" id="liDeportivoNV">
                                     <a class="nav-link" href="./HDeportivo.html"
-                                        id="aDeportivoNV" onclick="tipoZapato(zapatillas)">Deportivo</a>
+                                        id="aDeportivoNV"
+                                        onclick="tipoZapato(zapatillas)">Deportivo</a>
                                 </li>
                                 <li class="nav-item dropdown" id="liDropdownNV">
                                     <a class="nav-link dropdown-toggle" href="#"
@@ -54,9 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="d-flex" id="carritoNV">
                             <a href="#" class="btn btn-outline-primary d-flex"
-                                type="submit" id="btnBuscarNV"><i
+                                id="btnBuscarNV"><i
                                     class="bi bi-cart3"></i><span class="ml-2"
-                                    id="cuenta-carrito">0</span></a>
+                                    id="cuenta-carrito">0</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -64,5 +66,4 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
     document.body.insertBefore(navbar, document.body.firstChild);
-
 });
