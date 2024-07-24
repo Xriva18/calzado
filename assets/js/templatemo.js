@@ -1,10 +1,3 @@
-/*
-
-TemplateMo 559 Zay Shop
-
-https://templatemo.com/tm-559-zay-shop
-
-*/
 
 'use strict';
 $(document).ready(function () {
@@ -46,12 +39,10 @@ $(document).ready(function () {
 
   ///se selecionan tallas
   $('.btn-size').click(function () {
-    var this_val = $(this).html();
-    $("#product-size").val(this_val);
-    $(".btn-size").removeClass('btn-secondary');
-    $(".btn-size").addClass('btn-primary');
-    $(this).removeClass('btn-primary');
-    $(this).addClass('btn-secondary');
+    var this_val = $(this).data('value'); // Obtener el valor de la talla del atributo data-value
+    $("#product-size").val(this_val); // Actualizar el campo oculto con la talla seleccionada
+    $(".btn-size").removeClass('btn-secondary').addClass('btn-primary'); // Reiniciar el estado de los botones
+    $(this).removeClass('btn-primary').addClass('btn-secondary'); // Aplicar el estado activo al botón seleccionado
     return false;
   });
   // End roduct detail
