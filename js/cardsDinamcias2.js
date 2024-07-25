@@ -1,7 +1,7 @@
 
 //propio de zapatillas 
 $(document).ready(function () {
-    card(zapatillas);
+    card(Deportivo);
 });
 
 var productosGlobales = []; // Variable global para almacenar los productos
