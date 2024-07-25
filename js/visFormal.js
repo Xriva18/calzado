@@ -1,59 +1,14 @@
 
-//propio de zapatillas 
-$(document).ready(function () {
-    card(zapatillas);
-});
-
-var productosGlobales = []; // Variable global para almacenar los productos
-
-function card(productos) {
-    productosGlobales = productos; // Almacena los productos en la variable global
-    $('#cardDeportivo').empty();
-    $('#cardDeportivoS').hide();
-    for (var i = 0; i < productos.length; i++) {
-        var ConoceMas = '<a class="btn btn-primary" onclick="imprimirAlerta(' + i + ');">Conoce Más</a>';
-        var newTr = `
-                <div class="col-md-4 my-2">
-                    <div class="card shadow border rounded">
-                        <img src="${productos[i].imagen1}" class="card-img-top" alt="...">
-                        <div class="card-body border" style="height: 300px; background-color: #e3f2fd;">
-                            <div style="height: 10%;">
-                                <h5 class="card-title">${productos[i].nombre}</h5>
-                            </div>
-                            <div class="card-text mt-4" style="height: 60%;">
-                                <p class="text-justify" style="height: 85%;">${productos[i].descripcion}</p>
-                                <div class="row text-right d-flex justify-content-end mr-2 mb-3">
-                                    <p class="font-weight-bold mr-3">Tallas:</p>
-                                    <label>
-                                        ${productos[i].talla1}, ${productos[i].talla2}, ${productos[i].talla3}
-                                    </label>
-                                </div>
-                                <p class="text-right font-weight-bold"></p>
-                                <div class="text-right">
-                                    <label class="mr-2">${productos[i].precio} $</label>
-                                    ${ConoceMas}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <script src="./js/visualizarProducto.js"></script>`;
-        $('#cardDeportivo').append(newTr);
-        $.getScript('./js/visualizarProducto.js');
-    }
-}
-///////ver el rpoducto
-
 function imprimirAlerta(j) {
     var productos = productosGlobales; // Usa la variable global para obtener los productos
-    $('#cardDeportivoS').show();
-    $('#cardDeportivoS').empty();
+    $('#cardFormalS').show();
+    $('#cardFormalS').empty();
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
     var newTr2 = `
-     
+     <script src="./assets/js/templatemo.js"></script>
             <div class="container" style="margin-bottom:80px;">
                 <div class="row m-3">
                     <div class="col-lg-5 mt-2">
@@ -122,7 +77,7 @@ function imprimirAlerta(j) {
                                 </div>
                                 <!-- Div acontador -->                                
                                 <div class="row">
-                                    <div class="col d-grid">
+                                    <div class="col d-grid mt-3">
                                         <button type="submit" class="btn btn-primary btn-lg" name="submit" value="addtocard">
                                             Añade al carrito<i class="bi bi-cart3 ml-2"></i>
                                         </button>
@@ -133,62 +88,7 @@ function imprimirAlerta(j) {
                     </div>
                 </div>
             </div>
-
-            <script>
-                            
-                'use strict';
-                $(document).ready(function () {
-
-                // Accordion
-                var all_panels = $('.templatemo-accordion > li > ul').hide();
-
-                $('.templatemo-accordion > li > a').click(function () {
-                    console.log('Hello world!');
-                    var target = $(this).next();
-                    if (!target.hasClass('active')) {
-                    all_panels.removeClass('active').slideUp();
-                    target.addClass('active').slideDown();
-                    }
-                    return false;
-                });
-                // End accordion
-
-                // Product detail
-                $('.product-links-wap a').click(function () {
-                    var this_src = $(this).children('img').attr('src');
-                    $('#product-detail').attr('src', this_src);
-                    return false;
-                });
-                $('#btn-minus').click(function () {
-                    var val = $("#var-value").html();
-                    val = (val == '1') ? val : val - 1;
-                    $("#var-value").html(val);
-                    $("#product-quanity").val(val);
-                    return false;
-                });
-                $('#btn-plus').click(function () {
-                    var val = $("#var-value").html();
-                    val++;
-                    $("#var-value").html(val);
-                    $("#product-quanity").val(val);
-                    return false;
-                });
-
-                ///se selecionan tallas
-                $('.btn-size').click(function () {
-                    var this_val = $(this).data('value'); // Obtener el valor de la talla del atributo data-value
-                    $("#product-size").val(this_val); // Actualizar el campo oculto con la talla seleccionada
-                    $(".btn-size").removeClass('btn-secondary').addClass('btn-primary'); // Reiniciar el estado de los botones
-                    $(this).removeClass('btn-primary').addClass('btn-secondary'); // Aplicar el estado activo al botón seleccionado
-                    return false;
-                });
-                // End roduct detail
-
-                });
-            </script>
         `;
-    $('#cardDeportivoS').append(newTr2);
-    $('#cardDeportivoS button').eq(0).on('click', () => agregarAlCarrito(productos[j]));
+    $('#cardFormalS').append(newTr2);
+    $('#cardFormalS button').eq(0).on('click', () => agregarAlCarrito(productos[j]));
 }
-
-

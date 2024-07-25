@@ -1,4 +1,4 @@
-const zapatillas = [
+const Deportivo = [
     {
         id: 'Z001', nombre: 'PUMA California Tol',
         descripcion: 'Vas a estar cómodo dentro y fuera de la cancha con estas zapatillas retro, inspiradas en la cultura pop clásica y en el estilo de baloncesto.',
