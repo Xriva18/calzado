@@ -1,15 +1,15 @@
 
 //propio de zapatillas 
 $(document).ready(function () {
-    card(Deportivo);
+    card(Formales);
 });
 
 var productosGlobales = []; // Variable global para almacenar los productos
 
 function card(productos) {
     productosGlobales = productos; // Almacena los productos en la variable global
-    $('#cardDeportivo').empty();
-    $('#cardDeportivoS').hide();
+    $('#cardFormal').empty();
+    $('#cardFormalS').hide();
     for (var i = 0; i < productos.length; i++) {
         var ConoceMas = '<a class="btn btn-primary" onclick="imprimirAlerta(' + i + ');">Conoce Más</a>';
         var newTr = `
@@ -37,17 +37,17 @@ function card(productos) {
                         </div>
                     </div>
                 </div>
-                <script src="./js/visDeportivo"></script>`;
-        $('#cardDeportivo').append(newTr);
-        $.getScript('./js/visDeportivo');
+                <script src="./js/visFormal"></script>`;
+        $('#cardFormal').append(newTr);
+        $.getScript('./js/visFormal');
     }
 }
 ///////ver el rpoducto
 
 function imprimirAlerta(j) {
     var productos = productosGlobales; // Usa la variable global para obtener los productos
-    $('#cardDeportivoS').show();
-    $('#cardDeportivoS').empty();
+    $('#cardFormalS').show();
+    $('#cardFormalS').empty();
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -187,8 +187,8 @@ function imprimirAlerta(j) {
                 });
             </script>
         `;
-    $('#cardDeportivoS').append(newTr2);
-    $('#cardDeportivoS button').eq(0).on('click', () => agregarAlCarrito(productos[j]));
+    $('#cardFormalS').append(newTr2);
+    $('#cardFormalS button').eq(0).on('click', () => agregarAlCarrito(productos[j]));
 }
 
 
