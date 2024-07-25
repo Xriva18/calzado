@@ -29,7 +29,7 @@ function verCarrito() {
                             <button class="btn button bg-primary text-white btn-increment" data-index="${index}">+</button>
                         </div>
                     </td>
-                    <td class="text-center">$ ${producto.precio}</td>
+                    <td class="text-center">$ <span id="precio-${index}">${producto.precio}</span></td>
                 </tr>
             `;
             $('#productos-table-body').append(newTr2);
@@ -50,6 +50,7 @@ function verCarrito() {
             const index = $(this).data('index');
             eliminarProducto(index);
         });
+        actualizarTotales();
 
     } else {
         $('#full-cart').hide();
@@ -76,6 +77,7 @@ function actualizarCantidad(index, cambio) {
 
             // Actualiza la interfaz
             $(`#cantidad-${index}`).text(producto.cantidad);
+            actualizarTotales();
             actualizarNumeroCarrito();
         }
     }
@@ -86,21 +88,30 @@ function eliminarProducto(index) {
 
     if (productos && productos.length > 0) {
         // Elimina el producto del array
+        actualizarNumeroCarrito();
         productos.splice(index, 1);
 
         // Actualiza el localStorage
+        actualizarNumeroCarrito();
         localStorage.setItem("zapatillas", JSON.stringify(productos));
 
-        // Actualiza la interfaz
-        $(`#fila-producto-${index}`).remove();
-
-        // Actualiza el número de artículos en el carrito
+        // Redibuja el carrito
+        verCarrito();
         actualizarNumeroCarrito();
-
-        // Opcional: si todos los productos han sido eliminados, ocultar el contenedor
-        if (productos.length === 0) {
-            $('#full-cart').hide();
-            $('#empty-cart').show();
-        }
     }
+}
+
+function actualizarTotales() {
+    let productos = JSON.parse(localStorage.getItem("zapatillas"));
+    let total = 0;
+
+    if (productos && productos.length > 0) {
+        productos.forEach((producto, index) => {
+            let precio = parseFloat(producto.precio);
+            let cantidad = parseInt(producto.cantidad);
+            total += precio * cantidad;
+        });
+    }
+
+    $('#precio-total').text(`$ ${total.toFixed(2)}`);
 }
