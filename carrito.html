@@ -95,16 +95,9 @@
             </nav>
         </div>
         <!--Navbar-->
-        <!--Carrito-->
-        <div class="container my-3">
-            <div class="d-flex">
-                <div id="productos-container" class="row">
-                </div>
-            </div>
-        </div>
 
-        <!--Carrito-->
-        <div class="container mb-3">
+        <!--Carrito Productos-->
+        <div class="container mb-4 mt-4" id="full-cart">
             <div class="row justify-content-center">
                 <div class="col-auto p-4 border rounded shadow">
                     <div class="table-responsive">
@@ -112,7 +105,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col"
-                                        class="text-center">Art.</th>
+                                        class="text-center">Borrar</th>
                                     <th scope="col"
                                         class="text-center">&nbsp;</th>
                                     <th scope="col"
@@ -145,6 +138,27 @@
                 </div>
             </div>
         </div>
+        <!--Carrito Productos finish-->
+        <!--Carrito sin Productos -->
+        <div class="container mt-4 mb-5" id="empty-cart">
+            <div class="row justify-content-center">
+                <div class="col-8 p-4 border rounded shadow">
+                    <div>
+                        <h3 class="text-center">Carrito vacío</h3>
+                        <p class="text-center">No tienes productos en tu
+                            carrito</p>
+                        <p class="text-center"><img style="height: 200px;"
+                                src="./img/empty-cart.jpg"
+                                alt="Carrito vacío"></p>
+                        <p
+                            class="text-center font-italic font-weight-light">Agregue
+                            productos al
+                            carrito</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Carrito sin Productos finish-->
         <!--carrito finsih-->
         <!--Scripts-->
         <script
