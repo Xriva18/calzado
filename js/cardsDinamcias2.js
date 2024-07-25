@@ -1,5 +1,5 @@
 
-//propio de zapatillas
+//propio de zapatillas 
 $(document).ready(function () {
     card(zapatillas);
 });
