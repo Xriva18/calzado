@@ -21,9 +21,9 @@ function verCarrito() {
                                 <td class="text-center">${producto.talla}</td>
                                 <td class="text-center">
                                     <div>
-                                        <button class="btn button bg-primary text-white">+</button>
-                                        <span class="ml-3 mr-3">${producto.cantidad}</span>
-                                        <button class="btn button bg-primary text-white">-</button>
+                                    <button class="btn button bg-primary text-white">-</button>
+                                    <span class="ml-3 mr-3">${producto.cantidad}</span>
+                                    <button class="btn button bg-primary text-white">+</button>
                                     </div>
                                 </td>
                                 <td class="text-center">$ ${producto.precio}</td>
