@@ -77,7 +77,7 @@ function imprimirAlerta(j) {
                                 </div>
                                 <!-- Div acontador -->                                
                                 <div class="row">
-                                    <div class="col d-grid">
+                                    <div class="col d-grid mt-3">
                                         <button type="submit" class="btn btn-primary btn-lg" name="submit" value="addtocard">
                                             Añade al carrito<i class="bi bi-cart3 ml-2"></i>
                                         </button>
