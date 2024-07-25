@@ -1,8 +1,8 @@
 
 function imprimirAlerta(j) {
     var productos = productosGlobales; // Usa la variable global para obtener los productos
-    $('#cardDeportivoS').show();
-    $('#cardDeportivoS').empty();
+    $('#cardFormalS').show();
+    $('#cardFormalS').empty();
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -77,7 +77,7 @@ function imprimirAlerta(j) {
                                 </div>
                                 <!-- Div acontador -->                                
                                 <div class="row">
-                                    <div class="col d-grid">
+                                    <div class="col d-grid mt-3">
                                         <button type="submit" class="btn btn-primary btn-lg" name="submit" value="addtocard">
                                             Añade al carrito<i class="bi bi-cart3 ml-2"></i>
                                         </button>
@@ -89,6 +89,6 @@ function imprimirAlerta(j) {
                 </div>
             </div>
         `;
-    $('#cardDeportivoS').append(newTr2);
-    $('#cardDeportivoS button').eq(0).on('click', () => agregarAlCarrito(productos[j]));
+    $('#cardFormalS').append(newTr2);
+    $('#cardFormalS button').eq(0).on('click', () => agregarAlCarrito(productos[j]));
 }
