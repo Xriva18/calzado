@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calzado</title>
+    <!--Propio-->
+    <link rel="stylesheet" href="./css/estilos.css">
+    <!--BootStrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Footer-->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- JavaScript de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!---Propios-->
+    <script type="text/javascript" src="./js/footerMostar.js"></script>
+    <script type="text/javascript">
+        function GenerarPDF() {
+            // Aquí va la lógica para generar el PDF
+            alert('Formulario enviado correctamente');
+        }
+    </script>
+</head>
+<body>
+    <!--Navbar-->
+    <div class="container mt-3" style="z-index: 1;" id="dvContainerNV">
+        <nav class="navbar navbar-expand-lg rounded shadow" style="background-color: #e3f2fd;" id="nvBarraNV">
+            <div class="container-fluid bg-" id="dvFluidNV">
+                <!--Btn con img-->
+                <a class="navbar-brand" href="./index.html" id="aLogoNV">
+                    <img src="./img/Logo1.png" alt="Mundo del calzado" width="50" height="50" id="imgLogoNV">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="btnToggleNV">
+                    <!--Btn con Hamburguesa-->
+                    <span class="navbar-toggler-icon" id="spnIconoNV"></span>
+                    <!--Btn con img-->
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" id="dvColapsoNV">
+                    <div class="container navbar-collapse justify-content-center" id="dvContenedorInternoNV">
+                        <ul class="nav nav-pills" id="ulMenuNV">
+                            <li class="nav-item" id="liFormalNV">
+                                <a class="nav-link" aria-current="page" href="#" id="aFormalNV">Formal</a>
+                            </li>
+                            <li class="nav-item" id="liDeportivoNV">
+                                <a class="nav-link" href="./HDeportivo.html" id="aDeportivoNV" onclick="tipoZapato(zapatillas)">Deportivo</a>
+                            </li>
+                            <li class="nav-item dropdown" id="liDropdownNV">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="aOtrosNV">
+                                    Otros
+                                </a>
+                                <ul class="dropdown-menu" id="ulDropdownMenuNV">
+                                    <li><a class="dropdown-item" href="#">Contáctanos</a></li>
+                                    <li><a class="dropdown-item" href="#">¿Quiénes somos?</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex" id="carritoNV">
+                        <a href="./carrito.html" class="btn btn-outline-primary d-flex" id="btnBuscarNV"><i class="bi bi-cart3"></i><span class="ml-2" id="cuenta-carrito">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--Contactanos Start-->
+    <div id="EspacioOcultar">&nbsp</div>
+    <div class="row justify-content-center">
+        <div id="dvPrestamo" class="col-11 col-sm-11 col-md-10 col-lg-8">
+            <div class="card shadow">
+                <div style="background-color: #e3f2fd;" class="card-header text-center p-3 TituloFormulario">
+                    <h5 class="card-title">Contáctanos</h5>
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <div class="col-md-6 col-lg-6">
+                            <label class="font-weight-bold w-100">Nombre: </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control border" id="txtNombreCliente">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <label class="font-weight-bold w-100">Cédula: </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control border" id="txtCedula" maxlength="10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6 col-lg-6">
+                            <label class="font-weight-bold w-100">Correo: </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control border" id="txtCedula" maxlength="10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6 col-lg-6">
+                            <label class="font-weight-bold w-100">Telefono: </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control border" id="txtCedula" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <label class="font-weight-bold w-100">Razon de Contacto: <i class="fas requerido"></i></label>
+                            <div class="input-group">
+                                <select id="ddlTipoPrestamo" class="custom-select border" onchange="consultarListaDocumentos()">
+                                    <option value="0">---Seleccione---</option>
+                                    <option value="1">Compra</option>
+                                    <option value="2">Devolución</option>
+                                    <option value="3">Otros</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12 col-lg-12" id="ExcepcionObservacion">
+                            <label id="lblObservacion" class="font-weight-bold w-100">Otros: </label>
+                            <div class="input-group">
+                                <textarea id="txtObservacion" style="width:100%" rows="4" cols="50"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="input-group" style="display: flex; justify-content: flex-end;">
+                            <button type="button" class="btn btn-primary" id="btnGenerarPDF" onclick="GenerarPDF(); alert('Formulario enviado correctamente');">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Contactanos Finish-->
+
+    <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script type="text/javascript" src="./js/cartService.js"></script>
+</body>
+</html>
