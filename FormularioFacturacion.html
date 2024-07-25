@@ -15,6 +15,9 @@
     <!-- CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- JavaScript de Bootstrap y jQuery -->
+
+ 
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -23,7 +26,7 @@
     <script type="text/javascript">
         function GenerarPDF() {
             // Aquí va la lógica para generar el PDF
-            alert('Formulario enviado correctamente');
+            alert('Verificando su información');
         }
     </script>
 </head>
@@ -69,13 +72,13 @@
             </div>
         </nav>
     </div>
-    <!--Contactanos Start-->
+    <!--Facturación Start-->
     <div id="EspacioOcultar">&nbsp</div>
     <div class="row justify-content-center">
         <div id="dvPrestamo" class="col-11 col-sm-11 col-md-10 col-lg-8">
             <div class="card shadow">
                 <div style="background-color: #e3f2fd;" class="card-header text-center p-3 TituloFormulario">
-                    <h5 class="card-title">Contáctanos</h5>
+                    <h5 class="card-title">Facturación</h5>
                 </div>
                 <div class="card-body">
                     <div class="form-group row">
@@ -119,7 +122,92 @@
                    
                     
                 </div>
-            </div>
+                <div class="cotainer">Tarjeta1</div>
+                    <div style="background-color: #e3f2fd;" class="card-header text-center p-3 TituloFormulario">
+                        <h5 class="card-title">Tarjeta de debito/credito</h5>
+                    </div>
+                    <div class="form-group row">
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-8 col-lg-4 m-4">
+                            <label class="font-weight-bold w-100">Nombre de la Tarjeta: </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control border" id="txtCedula" maxlength="10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4 col-lg-4 m-4">
+                            <label class="font-weight-bold w-100">Numero de la Tarjeta: </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control border" id="txtCedula" maxlength="10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4 col-lg-4 m-4">
+                            <label class="font-weight-bold w-100">CVC: </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control border" id="txtNombreCliente">
+                            </div>
+                        </div>
+                        <div class=" col-md-4 m-4">
+                            <label class="font-weight-bold w-100">Fecha de Vencimiento:</label>
+                            <div class="input-group">
+                                <input type="date" class="form-control border"
+                                    id="txtFechaSolicitudMat">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row m-4">
+                        <div class="input-group" style="display: flex; justify-content: flex-end;">
+                            <button type="button" class="btn btn-primary" id="btnGenerarPDF" onclick="GenerarPDF(); alert('Su pago se realizo con exito');">Pagar</button>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="cotainer">Tarjeta2</div>
+                    <div style="background-color: #e3f2fd;" class="card-header text-center p-3 TituloFormulario">
+                        <h5 class="card-title">Comprobante de deposito</h5>
+                    </div>
+                    <div class="form-group row">
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-8 col-lg-4 m-4">
+                            <label class="font-weight-bold w-100">Numero de Comprobante: </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control border" id="txtNumeroComprobante" maxlength="10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row m-4">
+                        <div>
+                            <label class="font-weight-bold w-100">Subir comprobante: </label>
+                            <div class="input-group">
+                                <input type="file" id="input-foto" maxlength="10"class="Bordes">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group row m-4">
+                        <td class="Bordes">&nbsp;</td>
+                        <td colspan="4">
+                            <img src="" id="previa" width="400">
+                        </td>
+                <td class="Bordes">&nbsp;</td>
+                    </div>
+                    
+                    <div class="form-group row m-4">
+                        <div class="input-group" style="display: flex; justify-content: flex-end;">
+                            <button type="button" class="btn btn-primary" id="btnGenerarPDF" onclick="GenerarPDF(); alert('Su pago se realizo con exito');">Pagar</button>
+                        </div>
+                    </div>
+                
+                </div>
         </div>
     </div>
     <!--Contactanos Finish-->
@@ -131,3 +219,45 @@
     <script type="text/javascript" src="./js/cartService.js"></script>
 </body>
 </html>
+
+<!-- Mostrar imagen en el fomulario -->
+<script>
+    const inputFile = document.querySelector('#input-foto');
+    const image = document.querySelector('#previa');
+    var base64URL = [];
+
+    async function encodeFileAsBase64URL(file)
+    {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.addEventListener('loadend', () => {
+                resolve(reader.result);
+            });
+            reader.readAsDataURL(file);
+        });
+    };
+
+    //Eventos
+    inputFile.addEventListener('input', async (event) => {
+        //Convierto la primera imagen del input en una ruta Base64
+        base64URL = await encodeFileAsBase64URL(inputFile.files[0]);
+        image.setAttribute('src', base64URL);
+    });
+
+     function Pageload() {
+
+        
+        vAdicional.style.visibility = "collapse"
+
+        }
+        window.onload = Pageload;
+
+        function checkShow(checkboxElem)
+        {
+            if (checkboxElem.checked) {
+                vAdicional.style.visibility = "visible"
+            } else {
+                vAdicional.style.visibility = "collapse"
+            }
+        }
+</script>
