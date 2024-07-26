@@ -5,12 +5,12 @@ const depositoDiv = document.querySelector('#depositoDiv');
 let FotoMostrar;
 
 //duncion de alert al caragr la pagina
-$(document).ready(function () {
+/*$(document).ready(function () {
     const productos = JSON.parse(localStorage.getItem("zapatillas"));
     productos.forEach((producto, index) => {
         console.log(producto.nombre + " -- " + producto.precio + " $ " + producto.cantidad);
     });
-});
+});*/
 
 
 function encodeFileAsBase64URL(file) {
@@ -159,7 +159,49 @@ function GenerarPDF() {
         y += 5;
     }
     doc.text(x, y, $('#precio-total').text());
-
+    //tabla de productos
+    //cabecera
+    doc.setFontStyle('bold');
+    x = 15;
+    y = 80;
+    doc.text(x, y, 'Cantidad');
+    x += 20;
+    doc.text(x, y, '|');
+    x += 4;
+    doc.text(x, y, 'Nombre');
+    x += 113;
+    doc.text(x, y, '|');
+    x += 4;
+    doc.text(x + 3, y, 'Talla');
+    x += 20;
+    doc.text(x, y, '|');
+    x += 4;
+    doc.text(x, y, 'Precio');
+    //contenido
+    doc.setFontStyle('normal');
+    const productos = JSON.parse(localStorage.getItem("zapatillas"));
+    y = 80;
+    productos.forEach((producto, index) => {
+        x = 15;
+        y += 6;
+        doc.text(x + 8, y, producto.cantidad.toString());
+        x += 20;
+        doc.text(x, y, '|');
+        x += 4;
+        doc.text(x, y, producto.nombre.toString());
+        x += 113;
+        doc.text(x, y, '|');
+        x += 4;
+        doc.text(x + 5, y, producto.talla.toString());
+        x += 20;
+        doc.text(x, y, '|');
+        x += 4;
+        doc.text(x, y, " $ " + producto.precio.toString());
+    });
+    doc.setFontStyle('bold');
+    doc.text(x - 25, y + 8, " Total:");
+    doc.setFontStyle('normal');
+    doc.text(x - 10, y + 8, $('#precio-total').text());
 
     ///impresion de la factura
     var nombreArchivo = 'Factura_0.pdf';
