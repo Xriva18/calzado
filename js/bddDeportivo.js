@@ -35,4 +35,23 @@ const Deportivo = [
         descripcion2: 'Luce los colores del Barça con este modelo. Diseñadas en colaboración con la icónica marca holandesa Patta, estas Air Max Plus mantienen la larga tradición de colaboraciones entre el FC Barcelona y los visionarios neerlandeses. La parte superior y la placa del mediopié están cubiertas con un motivo degradado fluido con los colores deep royal blue y noble red para que representes al equipo azulgrana. Las chapas de edición especial cuentan con el escudo del Barça y las puntas de los cordones recuerdan a las rayas de la bandera catalana. El look se completa con elegantes líneas de diseño que aportan la estética inconfundible de las Air Max Plus, otro recordatorio destacado del legado de la grandeza.',
         talla1: 40, talla2: 41, talla3: 42, precio: 169.99, imagen1: './img/Deportivo/depImg6.jpg', imagen2: './img/Vista1.jpg', imagen3: './img/Vista2.jpg'
     },
+
+    {
+        id: 'Z007', nombre: 'Nike MC Trainer 2',
+        descripcion: 'Nike MC Trainer 2 son zapatos de entrenar para hombre, que te ayudarán a completar tus circuitos en el gimnasio, al aire libre o donde realices tus rutinas',
+        descripcion2: 'Nike MC Trainer 2 son zapatos de entrenar para hombre, que te ayudarán a completar tus circuitos en el gimnasio, al aire libre o donde realices tus rutinas. La base plana es más ancha alrededor del talón para ayudar a estabilizarte en trabajos como pesas, incorpora superposiciones alrededor de la puntera, y los cordones son fáciles de ajustar para que cumplas con tus objetivos,Beneficios del producto: Baseplana es más ancha alrededor del talón, Sujeción envuelve desde el talón hasta los laterales, Banda de rodadura de goma te proporciona tracción desde el césped hasta el suelo de la sala de entrenamiento, Malla en la parte superior permite que tu pie respire, Tracción de goma direccional en el lateral te da agarre en las cuerdas.',
+        talla1: 40, talla2: 42, talla3: 44, precio: 199.99, imagen1: './img/Deportivo/depImg7.jpg', imagen2: './img/Vista1.jpg', imagen3: './img/Vista2.jpg'
+    },
+    {
+        id: 'Z008', nombre: 'Under Armour HOVR Turbulence 2',
+        descripcion: 'Estos zapatos, diseñados específicamente para corredores de larga distancia, ofrecen una combinación perfecta de amortiguación, rebote, durabilidad y eficiencia.',
+        descripcion2: 'Estos zapatos, diseñados específicamente para corredores de larga distancia, ofrecen una combinación perfecta de amortiguación, rebote, durabilidad y eficiencia. La tecnología UA HOVR proporciona una amortiguación reactiva que reduce el impacto y devuelve la energía, impulsándote hacia adelante. Su parte superior de punto transpirable garantiza una contención ligera y duradera, ideal para entrenamientos diarios intensivos, Beneficios del producto: Amortiguación reactiva UA HOVR para reducir el impacto, Parte superior de punto transpirable para mayor durabilidad, Plantilla con sistema de confort de lujo, Suela de goma duradera con flexibilidad para el despegue, Ideal para entrenamientos diarios deportivos, Excelente retorno de energía en cada pisada, Diseño que favorece una pisada suave, Proporciona comodidad durante largas distancias, Optimiza la eficiencia del corredor, Ajuste regular para adaptarse a diversos tipos de pie',
+        talla1: 38, talla2: 39, talla3: 40, precio: 129.99, imagen1: './img/Deportivo/depImg8.jpg', imagen2: './img/Vista1.jpg', imagen3: './img/Vista2.jpg'
+    },
+    {
+        id: 'Z009', nombre: 'Reebok FloatZig 1',
+        descripcion: 'Los zapatos para correr, Reebok FloatZig 1 te brindan alto retorno de energía. Diseñados para inspirar a todos a ponerse los cordones y salir al aire libre.',
+        descripcion2: 'Los zapatos para correr, Reebok FloatZig 1 te brindan alto retorno de energía. Diseñados para inspirar a todos a ponerse los cordones y salir al aire libre, están construidas con tecnología de espuma liviana de primera calidad en una geometría que mejora la amortiguación, el retorno de energía y una transición suave. para brindar una experiencia única bajo los pies, Beneficios del producto: Parte superior de malla diseñada con superposiciones reflectantes, Ajuste regular, Cierre de encaje, Espuma energética Floatride, Suela de goma, Caída de la entresuela: 6 mm',
+        talla1: 36, talla2: 38, talla3: 39, precio: 169.99, imagen1: './img/Deportivo/depImg9.jpg', imagen2: './img/Vista1.jpg', imagen3: './img/Vista2.jpg'
+    },
 ];
