@@ -259,4 +259,10 @@ function GenerarPDF() {
     //elimna zapatillas
     var nombreArchivo = 'Factura_0.pdf';
     doc.save(nombreArchivo);
+    // Limpiar localStorage
+    localStorage.clear();
+
+    // Recargar la página
+    location.reload();
+
 }
