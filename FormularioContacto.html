@@ -64,15 +64,16 @@
                         <div
                             class="container navbar-collapse justify-content-center"
                             id="dvContenedorInternoNV">
+                            <!--Conexion/////////////////////////////////////////////////-->
                             <ul class="nav nav-pills" id="ulMenuNV">
                                 <li class="nav-item" id="liFormalNV">
                                     <a class="nav-link" aria-current="page"
-                                        href="#" id="aFormalNV">Formal</a>
+                                        href="./HFormal.html"
+                                        id="aFormalNV">Formal</a>
                                 </li>
                                 <li class="nav-item" id="liDeportivoNV">
                                     <a class="nav-link" href="./HDeportivo.html"
-                                        id="aDeportivoNV"
-                                        onclick="tipoZapato(zapatillas)">Deportivo</a>
+                                        id="aDeportivoNV">Deportivo</a>
                                 </li>
                                 <li class="nav-item dropdown" id="liDropdownNV">
                                     <a class="nav-link dropdown-toggle" href="#"
@@ -83,13 +84,14 @@
                                     <ul class="dropdown-menu"
                                         id="ulDropdownMenuNV">
                                         <li><a class="dropdown-item"
-                                                href="#">Contáctanos</a></li>
+                                                href="./FormularioContacto.html">Contáctanos</a></li>
                                         <li><a class="dropdown-item"
-                                                href="#">¿Quiénes
+                                                href="./FormularioSomos.html">¿Quiénes
                                                 somos?</a></li>
                                     </ul>
                                 </li>
                             </ul>
+                            <!--Conexiones finish////////////////////////////////////////-->
                         </div>
                         <div class="d-flex" id="carritoNV">
                             <a href="./carrito.html"
@@ -104,8 +106,7 @@
             </nav>
         </div>
         <!--Contactanos Start-->
-        <div id="EspacioOcultar">&nbsp</div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-4 mb-5">
             <div id="dvPrestamo" class="col-11 col-sm-11 col-md-10 col-lg-8">
                 <div class="card shadow">
                     <div style="background-color: #e3f2fd;"
@@ -120,7 +121,8 @@
                                 <div class="input-group">
                                     <input type="text"
                                         class="form-control border"
-                                        id="txtNombreCon">
+                                        id="txtNombreCon"
+                                        onkeypress="return isAlfa(event)">
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-6">
@@ -129,7 +131,8 @@
                                 <div class="input-group">
                                     <input type="text"
                                         class="form-control border"
-                                        id="txtCedulaCon" maxlength="10">
+                                        id="txtCedulaCon" maxlength="10"
+                                        onkeypress="return isNumber(event)">
                                 </div>
                             </div>
                         </div>
@@ -153,7 +156,8 @@
                                 <div class="input-group">
                                     <input type="text"
                                         class="form-control border"
-                                        id="txtTelefonoCon" maxlength="10">
+                                        id="txtTelefonoCon" maxlength="10"
+                                        onkeypress="return isNumber(event)">
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-6">
@@ -162,11 +166,11 @@
                                         class="fas requerido"></i></label>
                                 <div class="input-group">
                                     <select id="ddlRazonCon"
-                                        class="custom-select border"
-                                        onchange="consultarListaDocumentos()">
+                                        class="custom-select border">
                                         <option
                                             value="0">---Seleccione---</option>
-                                        <option value="1">Compra</option>
+                                        <option value="1">Compra
+                                            mayorista</option>
                                         <option value="2">Devolución</option>
                                         <option value="3">Otros</option>
                                     </select>
@@ -181,7 +185,7 @@
                                     class="font-weight-bold w-100">Otros:
                                 </label>
                                 <div class="input-group">
-                                    <textarea id="txtOtrosCon"
+                                    <textarea id="txtOtrosCon" class="border"
                                         style="width:100%" rows="4"
                                         cols="50"></textarea>
                                 </div>
@@ -192,7 +196,7 @@
                                 style="display: flex; justify-content: flex-end;">
                                 <button type="button" class="btn btn-primary"
                                     id="btnGenerarPDF"
-                                    onclick="GenerarPDF(); alert('Formulario enviado correctamente');">Enviar</button>
+                                    onclick="validacionContacto()">Enviar</button>
                             </div>
                         </div>
                     </div>
@@ -210,5 +214,7 @@
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="./js/navbar.js"></script>
         <script type="text/javascript" src="./js/cartService.js"></script>
+        <script type="text/javascript" src="./js/Contactanos.js"></script>
+        <script type="text/javascript" src="./js/letra-or-number.js"></script>
     </body>
 </html>
