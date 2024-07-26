@@ -255,7 +255,8 @@ function GenerarPDF() {
     doc.setFontStyle('normal');
     doc.text(x - 10, y + 8, $('#precio-total').text());
 
-    ///impresion de la factura
+
+    //elimna zapatillas
     var nombreArchivo = 'Factura_0.pdf';
     doc.save(nombreArchivo);
 }
