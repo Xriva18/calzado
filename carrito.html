@@ -31,6 +31,9 @@
         <!---Propios-->
         <script type="text/javascript" src="./js/footerMostar.js"></script>
         <script src="./js/carrito.js"></script>
+        <script src="./js/pdf/html2canvas.js"></script>
+        <script src="./js/pdf/jspdf.debug.js"></script>
+        <script src="./js/pdf/jspdf.plugin.autotable.min.js"></script>
     </head>
     <body>
         <!--Navbar-->
@@ -163,7 +166,8 @@
         </div>
         <!--Carrito sin Productos finish-->
         <!--carrito finsih-->
-        <!--Facturación start-->
+
+        <!--///////////////////////////////////////////////////////////////////////////-->
         <!--Facturación Start-->
         <div class="row justify-content-center mt-4 mb-5">
             <div id="dvPrestamo" class="col-11 col-sm-11 col-md-10 col-lg-8">
@@ -227,8 +231,7 @@
                                         name="reb_pago" value="D"
                                         class="custom-control-input">
                                     <label class="custom-control-label"
-                                        for="rbDeposito">Depósito a
-                                        cuenta</label><br>
+                                        for="rbDeposito">Transferencia</label><br>
                                 </div>
                             </div>
                         </div>
@@ -286,8 +289,10 @@
                                     <label class="font-weight-bold w-100">Fecha
                                         de Vencimiento:</label>
                                     <div class="input-group">
-                                        <input type="date"
+                                        <input type="text"
                                             class="form-control border"
+                                            maxlength="4"
+                                            pattern="\d{4}"
                                             id="txtFechaVencimiento" required>
                                     </div>
                                 </div>
@@ -339,7 +344,7 @@
                                 <button type="button"
                                     class="btn btn-primary shadow-lg"
                                     id="btnGenerarPDF"
-                                    onclick="if (validarFormularioFact()) { GenerarPDF(); alert('Su pago se realizó con éxito'); }">Pagar</button>
+                                    onclick="GenerarPDF();">Pagar</button>
                             </div>
                         </div>
                     </div>
