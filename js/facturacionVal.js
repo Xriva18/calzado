@@ -33,51 +33,52 @@ document.querySelectorAll('input[name="reb_pago"]').forEach(radio => {
     });
 });
 
-function validarFormulario() {
-    const nombre = document.getElementById('txtNombreCliente').value;
-    const cedula = document.getElementById('txtCedula').value;
-    const correo = document.getElementById('txtCorreo').value;
-    const tarjeta = document.getElementById('txtNumeroTarjeta').value;
-    const cvc = document.getElementById('txtCVC').value;
-    const fecha = document.getElementById('txtFechaVencimiento').value;
-    const comprobante = document.getElementById('input-foto').files.length;
+/*function validarFormularioFact() {
+    $(document).ready(function () {
+        const nombre = $('#txtNombreCliente').val();
+        const cedula = $('#txtCedula').val();
+        const correo = $('#txtCorreo').val();
+        const tarjeta = $('#txtNumeroTarjeta').val();
+        const cvc = $('#txtCVC').val();
+        const fecha = $('#txtFechaVencimiento').val();
+        const comprobante = $('#input-foto')[0].files.length;
 
-    if (!nombre || !cedula || !correo) {
-        alert('Por favor, complete todos los campos obligatorios.');
-        return false;
-    }
-
-    if (!/^\d{10}$/.test(cedula)) {
-        alert('La cédula debe tener 10 dígitos.');
-        return false;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
-        alert('Ingrese un correo electrónico válido.');
-        return false;
-    }
-
-    if (document.getElementById('rbTarjeta').checked) {
-        if (!tarjeta || !cvc || !fecha) {
-            alert('Complete todos los campos de la tarjeta.');
+        if (!/^\d{10}$/.test(cedula)) {
+            swal('La cédula debe tener 10 dígitos.');
             return false;
         }
-        if (!/^\d{16}$/.test(tarjeta)) {
-            alert('El número de la tarjeta debe tener 16 dígitos.');
-            return false;
-        }
-        if (!/^\d{3}$/.test(cvc)) {
-            alert('El CVC debe tener 3 dígitos.');
-            return false;
-        }
-    }
 
-    if (document.getElementById('rbDeposito').checked) {
-        if (comprobante === 0) {
-            alert('Por favor, suba un comprobante de depósito.');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+            swal('Ingrese un correo electrónico válido.');
             return false;
         }
-    }
 
-    return true;
+        if ($('#rbTarjeta').is(':checked')) {
+            if (!tarjeta || !cvc || !fecha) {
+                swal('Complete todos los campos de la tarjeta.');
+                return false;
+            } else {
+                if (!/^\d{16}$/.test(tarjeta)) {
+                    swal('El número de la tarjeta debe tener 16 dígitos.');
+                    return false;
+                }
+                if (!/^\d{3}$/.test(cvc)) {
+                    swal('El CVC debe tener 3 dígitos.');
+                    return false;
+                }
+            }
+        }
+
+        if ($('#rbDeposito').is(':checked')) {
+            if (comprobante === 0) {
+                swal('Por favor, suba un comprobante de depósito.');
+                return false;
+            }
+        }
+
+        return true;
+    });
+}*/
+function GenerarPDF() {
+
 }
