@@ -139,7 +139,8 @@
                     </div>
                     <div class="text-right m-2">
                         <button
-                            class="btn button bg-primary text-white shadow-lg">Facturar</button>
+                            class="btn button bg-primary text-white shadow-lg"
+                            onclick="MostrarFacturacion()">Facturar</button>
                     </div>
                 </div>
             </div>
@@ -169,7 +170,7 @@
 
         <!--///////////////////////////////////////////////////////////////////////////-->
         <!--Facturación Start-->
-        <div class="row justify-content-center mt-4 mb-5">
+        <div class="row justify-content-center mt-4 mb-5" id="FacturacionDiv">
             <div id="dvPrestamo" class="col-11 col-sm-11 col-md-10 col-lg-8">
                 <div class="card shadow">
                     <div style="background-color: #e3f2fd;"
@@ -338,13 +339,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group row m-4">
+                        <div class="form-group row">
                             <div class="input-group"
                                 style="display: flex; justify-content: flex-end;">
                                 <button type="button"
                                     class="btn btn-primary shadow-lg"
                                     id="btnGenerarPDF"
-                                    onclick="GenerarPDF();">Pagar</button>
+                                    onclick="validarFormularioFact()">Pagar</button>
+                                <button type="button"
+                                    class="btn btn-secundary shadow ml-2"
+                                    onclick="MostrarCarrito2()">Cancelar</button>
                             </div>
                         </div>
                     </div>

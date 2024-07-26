@@ -11,7 +11,18 @@ let FotoMostrar;
         console.log(producto.nombre + " -- " + producto.precio + " $ " + producto.cantidad);
     });
 });*/
+$(document).ready(function () {
+    $('#FacturacionDiv').hide();
+});
 
+function MostrarFacturacion() {
+    $('#FacturacionDiv').show();
+    $('#full-cart').hide();
+}
+function MostrarCarrito2() {
+    $('#FacturacionDiv').hide();
+    $('#full-cart').show();
+}
 
 function encodeFileAsBase64URL(file) {
     return new Promise((resolve) => {
@@ -43,16 +54,64 @@ document.querySelectorAll('input[name="reb_pago"]').forEach(radio => {
     });
 });
 
-/*function validarFormularioFact() {
+function validarFormularioFact() {
     $(document).ready(function () {
         const nombre = $('#txtNombreCliente').val();
         const cedula = $('#txtCedula').val();
         const correo = $('#txtCorreo').val();
         const tarjeta = $('#txtNumeroTarjeta').val();
+        const nombreTarjeta = $('#txtNombreTarjeta').val();
         const cvc = $('#txtCVC').val();
         const fecha = $('#txtFechaVencimiento').val();
         const comprobante = $('#input-foto')[0].files.length;
 
+        if (nombre === '') {
+            swal("Error", "El campo Nombre es obligatorio", "error");
+            return false;
+        }
+        if (cedula === '') {
+            swal("Error", "El campo Cedula es obligatorio", "error");
+            return false;
+        }
+        if (correo === '') {
+            swal("Error", "El campo Correo es obligatorio", "error");
+            return false;
+        }
+        if (!$('#rbDeposito').is(':checked') && !$('#rbTarjeta').is(':checked')) {
+            swal("Error", "Debe seleccionar un método de pago", "error");
+            return false;
+        }
+        if ($('#rbTarjeta').is(':checked')) {
+
+            if (tarjeta === '') {
+                swal("Error", "El campo Numero Tarjeta es obligatorio", "error");
+                return false;
+            }
+            if (cvc === '') {
+                swal("Error", "El campo CVC es obligatorio", "error");
+                return false;
+            }
+            if (fecha === '') {
+                swal("Error", "El campo Fecha Vencimiento es obligatorio", "error");
+                return false;
+            }
+            if (nombreTarjeta === '') {
+                swal("Error", "El campo Nombre Tarjeta es obligatorio", "error");
+                return false;
+            }
+        }
+        if ($('#rbDeposito').is(':checked')) {
+            if (comprobante === 0) {
+                swal("Error", "Debe subir el comprobante es obligatorio", "error");
+                return false;
+            }
+            if ($('#txtNumeroComprobante').val() === '') {
+                swal("Error", "El campo Numero Comprobante es obligatorio", "error");
+                return false;
+            }
+        }
+
+        //Valdiaciones de llenado
         if (!/^\d{10}$/.test(cedula)) {
             swal('La cédula debe tener 10 dígitos.');
             return false;
@@ -78,17 +137,10 @@ document.querySelectorAll('input[name="reb_pago"]').forEach(radio => {
                 }
             }
         }
-
-        if ($('#rbDeposito').is(':checked')) {
-            if (comprobante === 0) {
-                swal('Por favor, suba un comprobante de depósito.');
-                return false;
-            }
-        }
-
+        GenerarPDF();
         return true;
     });
-}*/
+}
 
 ///onclick="if (validarFormularioFact()) { GenerarPDF(); alert('Su pago se realizó con éxito'); }
 function GenerarPDF() {
