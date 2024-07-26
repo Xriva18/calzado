@@ -18,6 +18,7 @@ function agregarAlCarrito(producto) {
         localStorage.setItem("zapatillas", JSON.stringify(nuevoMemoria));
     }
     actualizarNumeroCarrito();
+    swal("Producto!", "Agregado al carrito", "success");
 }
 
 

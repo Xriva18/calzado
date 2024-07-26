@@ -53,7 +53,6 @@ function imprimirAlerta(j) {
         behavior: 'smooth'
     });
     var newTr2 = `
-     
             <div class="container" style="margin-bottom:80px;">
                 <div class="row m-3">
                     <div class="col-lg-5 mt-2">

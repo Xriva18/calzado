@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Formal</title>
+        <title>Somos</title>
         <link rel="icon" type="image/png" href="./img/Logo1.png">
         <!--Propio-->
         <link rel="stylesheet" href="./css/estilos.css">
@@ -11,6 +11,9 @@
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
             rel="stylesheet">
+
+        <!-- Footer-->
+        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
         <!-- CSS de Bootstrap -->
         <link rel="stylesheet"
@@ -21,18 +24,11 @@
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
         <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script
-            src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
         <!---Propios-->
-        <script type="text/javascript" src="./js/bddFormal.js"></script>
-        <script type="text/javascript" src="./js/CardFormal.js"></script>
         <script type="text/javascript" src="./js/footerMostar.js"></script>
-
     </head>
-
     <body>
         <!--Navbar-->
         <div class="container mt-3" style="z-index: 1; " id="dvContainerNV">
@@ -40,6 +36,7 @@
                 style="background-color: #e3f2fd; " id="nvBarraNV">
                 <div class="container-fluid bg-" id="dvFluidNV">
                     <!--Btn con img-->
+
                     <a class="navbar-brand" href="./index.html" id="aLogoNV">
                         <img src="./img/Logo1.png" alt="Mundo del calzado"
                             width="50" height="50" id="imgLogoNV">
@@ -101,20 +98,47 @@
                 </div>
             </nav>
         </div>
-        <!--Navbar-->
+		<!--Fin Navbar-->
+<!--Contactanos Start-->
+<div class="row justify-content-center m-4">
+    <div id="dvPrestamo" class="col-11 col-sm-11 col-md-10 col-lg-8">
+        <div class="card shadow">
+            <div style="background-color: #e3f2fd;" class="card-header text-center p-3 TituloFormulario">
+                <h5 class="card-title">¿Quiénes Somos?</h5>
+            </div>
+            <div class="card-body pl-5 pr-5 text-justify">
+                <h5 class="card-title mt-1"><strong>Sobre Nosotros:</strong></h5>
+                <p>En <strong>Tu Calzado Ideal</strong>, nos dedicamos a ofrecer el mejor calzado para todo tipo de ocasiones. Nuestra misión es proporcionar productos de alta calidad que combinan comodidad y estilo, adaptándonos a las necesidades y preferencias de cada uno de nuestros clientes.</p>
 
-        <div class="container shadow rounded border mt-3"
-            style="background-color: #e3f2fd;"
-            id="cardFormalS">
-        </div>
-        <!-- Tarjetas-->
-        <div class="container my-3">
-            <div class="d-flex">
-                <!-- Tarjetas dinámicas -->
-                <div id="cardFormal" class="row"></div>
-                <!-- Tarjetas dinámicas terminan -->
+                <h5 class="card-title mt-3"><strong>Nuestra Oferta:</strong></h5>
+                <p>Contamos con una amplia variedad de zapatos que incluyen:</p>
+                <ul>
+                    <li><strong>Calzado Formal:</strong> Para eventos y ocasiones especiales, nuestros zapatos formales están diseñados con elegancia y sofisticación.</li>
+                    <li><strong>Calzado Deportivo:</strong> Ideal para quienes buscan rendimiento y confort en sus actividades diarias y deportivas.</li>
+                </ul>
+
+                <h5 class="card-title mt-3"><strong>Nuestro Compromiso:</strong></h5>
+                <p>En <strong>Tu Calzado Ideal</strong>, estamos comprometidos con la excelencia en cada paso del proceso. Nuestro equipo trabaja incansablemente para asegurar que cada cliente tenga una experiencia de compra satisfactoria, desde la selección de productos hasta la atención postventa.</p>
+
+                <h5 class="card-title mt-3"><strong>Agradecimiento:</strong></h5>
+                <p>Agradecemos sinceramente tu preferencia y confianza en nosotros. Esperamos seguir siendo tu opción favorita en calzado y satisfacer tus necesidades con productos de la más alta calidad.</p>
+            </div>
+            <!--Imagen después de "¿Quiénes somos?"-->
+            <div class="row mb-5">
+                <div class="col-md-12 text-center">
+                    <img src="./img/Logo1.png" alt="Nuestra Empresa" class="img-fluid rounded" width="100px">
+                </div>
             </div>
         </div>
+    </div>
+</div>
+<!--Fin Quiénes somos-->
+       
+    </div>
+</div>
+</div>
+
+
 
         <!--Scripts-->
         <script
@@ -124,8 +148,6 @@
         <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="./js/navbar.js"></script>
-        <script src="./assets/js/templatemo.js"></script>
         <script type="text/javascript" src="./js/cartService.js"></script>
-
     </body>
 </html>

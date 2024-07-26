@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Deportivo</title>
+        <link rel="icon" type="image/png" href="./img/Logo1.png">
         <!--Propio-->
         <link rel="stylesheet" href="./css/estilos.css">
         <!--BootStrap-->
@@ -20,6 +21,10 @@
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
         <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script
+            src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <!---Propios-->
         <script type="text/javascript" src="./js/bddDeportivo.js"></script>
@@ -55,6 +60,7 @@
                         <div
                             class="container navbar-collapse justify-content-center"
                             id="dvContenedorInternoNV">
+                            <!--Conexion/////////////////////////////////////////////////-->
                             <ul class="nav nav-pills" id="ulMenuNV">
                                 <li class="nav-item" id="liFormalNV">
                                     <a class="nav-link" aria-current="page"
@@ -63,8 +69,7 @@
                                 </li>
                                 <li class="nav-item" id="liDeportivoNV">
                                     <a class="nav-link" href="./HDeportivo.html"
-                                        id="aDeportivoNV"
-                                        onclick="tipoZapato(zapatillas)">Deportivo</a>
+                                        id="aDeportivoNV">Deportivo</a>
                                 </li>
                                 <li class="nav-item dropdown" id="liDropdownNV">
                                     <a class="nav-link dropdown-toggle" href="#"
@@ -75,13 +80,14 @@
                                     <ul class="dropdown-menu"
                                         id="ulDropdownMenuNV">
                                         <li><a class="dropdown-item"
-                                                href="#">Contáctanos</a></li>
+                                                href="./FormularioContacto.html">Contáctanos</a></li>
                                         <li><a class="dropdown-item"
-                                                href="#">¿Quiénes
+                                                href="./FormularioSomos.html">¿Quiénes
                                                 somos?</a></li>
                                     </ul>
                                 </li>
                             </ul>
+                            <!--Conexiones finish////////////////////////////////////////-->
                         </div>
                         <div class="d-flex" id="carritoNV">
                             <a href="./carrito.html"

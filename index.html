@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calzado</title>
+        <title>Inicio</title>
+        <link rel="icon" type="image/png" href="./img/Logo1.png">
         <!--Propio-->
         <link rel="stylesheet" href="./css/estilos.css">
         <!--BootStrap-->
@@ -23,6 +24,10 @@
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
         <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script
+            src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <!---Propios-->
         <script type="text/javascript" src="./js/bddInicio1.js"></script>
         <script type="text/javascript" src="./js/CardInicio1.js"></script>
@@ -56,6 +61,7 @@
                         <div
                             class="container navbar-collapse justify-content-center"
                             id="dvContenedorInternoNV">
+                            <!--Conexion/////////////////////////////////////////////////-->
                             <ul class="nav nav-pills" id="ulMenuNV">
                                 <li class="nav-item" id="liFormalNV">
                                     <a class="nav-link" aria-current="page"
@@ -64,8 +70,7 @@
                                 </li>
                                 <li class="nav-item" id="liDeportivoNV">
                                     <a class="nav-link" href="./HDeportivo.html"
-                                        id="aDeportivoNV"
-                                        onclick="tipoZapato(zapatillas)">Deportivo</a>
+                                        id="aDeportivoNV">Deportivo</a>
                                 </li>
                                 <li class="nav-item dropdown" id="liDropdownNV">
                                     <a class="nav-link dropdown-toggle" href="#"
@@ -76,13 +81,14 @@
                                     <ul class="dropdown-menu"
                                         id="ulDropdownMenuNV">
                                         <li><a class="dropdown-item"
-                                                href="#">Contáctanos</a></li>
+                                                href="./FormularioContacto.html">Contáctanos</a></li>
                                         <li><a class="dropdown-item"
-                                                href="#">¿Quiénes
+                                                href="./FormularioSomos.html">¿Quiénes
                                                 somos?</a></li>
                                     </ul>
                                 </li>
                             </ul>
+                            <!--Conexiones finish////////////////////////////////////////-->
                         </div>
                         <div class="d-flex" id="carritoNV">
                             <a href="./carrito.html"
@@ -97,12 +103,14 @@
             </nav>
         </div>
         <!--Navbar-->
+
         <!-- TarjetaVista-->
         <div class="container shadow rounded border mt-3"
             style="background-color: #e3f2fd;"
             id="cardInicio1S">
         </div>
         <!-- TarjetaVista finsih-->
+
         <!--Slider-->
         <div class="container">
             <div id="miCarrusel" class="carousel slide rounded shadow mt-3"
@@ -134,14 +142,16 @@
                                 class="w-50 rounded d-flex flex-column justify-content-center align-items-start text-white p-5"
                                 style="background-color: #617fad; height: 500px;">
                                 <h1>¡Gran oferta del 40%!</h1>
-                                <p>Disponible en todas las tallas</p>
                                 <div>
-                                    <label class="m-1">A tan solo:</label>
+                                    <label
+                                        class="mr-1 font-weight-bold">Tallas:</label>
+                                    <label class="m-1">38, 39, 40</label>
+                                </div>
+                                <div>
+                                    <label class="mr-1 font-weight-bold">A tan
+                                        solo:</label>
                                     <label class="m-1">$ 60,50</label>
-                                    <button type="button"
-                                        class="btn btn-primary shadow m-3">Compralo
-                                        &nbsp;<i
-                                            class="bi bi-cart"></i></button>
+
                                 </div>
                             </div>
                         </div>
@@ -161,14 +171,15 @@
                                 class="w-50 rounded d-flex flex-column justify-content-center align-items-start text-white p-5"
                                 style="background-color: #617fad; height: 500px;">
                                 <h1>¡Gran oferta del 50%!</h1>
-                                <p>Disponible en todas las tallas</p>
                                 <div>
-                                    <label class="m-1">A tan solo:</label>
+                                    <label
+                                        class="mr-1 font-weight-bold">Tallas:</label>
+                                    <label class="m-1">40, 42, 43</label>
+                                </div>
+                                <div>
+                                    <label class="mr-1 font-weight-bold">A tan
+                                        solo:</label>
                                     <label class="m-1">$ 70,75</label>
-                                    <button type="button"
-                                        class="btn btn-primary shadow m-3">Compralo
-                                        &nbsp;<i
-                                            class="bi bi-cart"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -186,15 +197,16 @@
                             <div
                                 class="w-50 rounded d-flex flex-column justify-content-center align-items-start text-white p-5"
                                 style="background-color: #617fad; height: 500px;">
-                                <h1>¡Gran oferta del 50%!</h1>
-                                <p>Disponible en todas las tallas</p>
+                                <h1>¡Gran oferta del 60%!</h1>
                                 <div>
-                                    <label class="m-1">A tan solo:</label>
+                                    <label
+                                        class="mr-1 font-weight-bold">Tallas:</label>
+                                    <label class="m-1">35, 36, 37</label>
+                                </div>
+                                <div>
+                                    <label class="mr-1 font-weight-bold">A tan
+                                        solo:</label>
                                     <label class="m-1">$ 70,75</label>
-                                    <button type="button"
-                                        class="btn btn-primary shadow m-3">Compralo
-                                        &nbsp;<i
-                                            class="bi bi-cart"></i></button>
                                 </div>
                             </div>
                         </div>
