@@ -4,6 +4,15 @@ const tarjetaDiv = document.querySelector('#tarjetaDiv');
 const depositoDiv = document.querySelector('#depositoDiv');
 let FotoMostrar;
 
+//duncion de alert al caragr la pagina
+$(document).ready(function () {
+    const productos = JSON.parse(localStorage.getItem("zapatillas"));
+    productos.forEach((producto, index) => {
+        console.log(producto.nombre + " -- " + producto.precio + " $ " + producto.cantidad);
+    });
+});
+
+
 function encodeFileAsBase64URL(file) {
     return new Promise((resolve) => {
         const reader = new FileReader();
