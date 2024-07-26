@@ -84,21 +84,40 @@ function actualizarCantidad(index, cambio) {
 }
 
 function eliminarProducto(index) {
-    let productos = JSON.parse(localStorage.getItem("zapatillas"));
+    swal({
+        title: "Advertencia",
+        text: "¿Estás seguro de que deseas eliminar este producto?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("Usted ha borrado un producto", {
+                    icon: "success",
+                });
+                let productos = JSON.parse(localStorage.getItem("zapatillas"));
 
-    if (productos && productos.length > 0) {
-        // Elimina el producto del array
-        actualizarNumeroCarrito();
-        productos.splice(index, 1);
+                if (productos && productos.length > 0) {
+                    // Elimina el producto del array
+                    actualizarNumeroCarrito();
+                    productos.splice(index, 1);
 
-        // Actualiza el localStorage
-        actualizarNumeroCarrito();
-        localStorage.setItem("zapatillas", JSON.stringify(productos));
+                    // Actualiza el localStorage
+                    actualizarNumeroCarrito();
+                    localStorage.setItem("zapatillas", JSON.stringify(productos));
 
-        // Redibuja el carrito
-        verCarrito();
-        actualizarNumeroCarrito();
-    }
+                    // Redibuja el carrito
+                    verCarrito();
+                    actualizarNumeroCarrito();
+                }
+
+            } else {
+                swal("No elimino el producto!");
+            }
+        });
+
+
 }
 
 function actualizarTotales() {
