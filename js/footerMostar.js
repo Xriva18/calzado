@@ -44,8 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             <li><a class="text-decoration-none"
                                     href="./HDeportivo.html">Deportivo</a></li>
                             <li><a class="text-decoration-none"
-                                    href="#">Casual</a></li>
-                            <li><a class="text-decoration-none"
                                     href="#">Formal</a></li>
 
                         </ul>
@@ -83,16 +81,14 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <a
                                     class="text-light text-decoration-none"
                                     target="_blank"
-                                    href="http://facebook.com/"><i
-                                        class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                                    href="http://facebook.com/"><i class="bi bi-facebook"></i></a>
                             </li>
                             <li
                                 class="list-inline-item border border-light rounded-circle text-center">
                                 <a
                                     class="text-light text-decoration-none"
                                     target="_blank"
-                                    href="https://www.instagram.com/"><i
-                                        class="fab fa-instagram fa-lg fa-fw"></i></a>
+                                    href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
                             </li>
 
                         </ul>
