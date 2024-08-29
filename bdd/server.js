@@ -26,6 +26,7 @@ app.get('/tbl_for', (req, res) => {
         }
     });
 });
+
 app.get('/tbl_inc', (req, res) => {
     connection.query('SELECT * FROM tbl_inc', (err, result) => {
         if (err) {

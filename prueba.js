@@ -1,10 +1,10 @@
-fetch('http://localhost:3000/tbl_dep')
+fetch('http://localhost:3000/tbl_inc')
     .then(response => response.json())
     .then(data => {
         const tbl_depList = document.getElementById('tbl_dep');
-        data.forEach(tbl_dep => {
+        data.forEach(tbl_inc => {
             const li = document.createElement('li');
-            li.textContent = ` Nombre: ${tbl_dep.nombre_dep} - Descripcion: ${tbl_dep.descripcion_dep} - Precio: ${tbl_dep.precio_dep}`;
+            li.textContent = `Nombre: ${tbl_inc.nombre} - Descripcion: ${tbl_inc.descripcion} - Precio: ${tbl_inc.precio}`;
             tbl_depList.appendChild(li);
         });
     })

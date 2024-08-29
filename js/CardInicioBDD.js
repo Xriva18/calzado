@@ -1,43 +1,43 @@
 
 
 $(document).ready(function () {
-    $('#cardFormal').empty();
-    $('#cardFormalS').hide();
-    fetch('http://localhost:3000/tbl_for')
+    $('#cardInicio1').empty();
+    $('#cardInicio1S').hide();
+    fetch('http://localhost:3000/tbl_inc')
         .then(response => response.json())
         .then(data => {
-            data.forEach(tbl_for => {
-                i = tbl_for.id;
+            data.forEach(tbl_inc => {
+                i = tbl_inc.id;
                 var ConoceMas = '<a class="btn btn-primary" onclick="imprimirAlerta(' + i + ');">Conoce Más</a>';
                 var newTr = `
                  <div class="col-md-4 my-2">
                     <div class="card shadow border rounded">
-                        <img src="${tbl_for.imagen1}" class="card-img-top" alt="...">
+                        <img src="${tbl_inc.imagen1}" class="card-img-top" alt="...">
                         <div class="card-body border" style="height: 300px; background-color: #e3f2fd;">
                             <div style="height: 10%;">
-                                <h5 class="card-title">${tbl_for.nombre} </h5>
+                                <h5 class="card-title">${tbl_inc.nombre} </h5>
                             </div>
                             <div class="card-text mt-4" style="height: 60%;">
-                                <p class="text-justify" style="height: 85%;">${tbl_for.descripcion}</p>
+                                <p class="text-justify" style="height: 85%;">${tbl_inc.descripcion}</p>
                                 <div class="row text-right d-flex justify-content-end mr-2 mb-3">
                                     <p class="font-weight-bold mr-3">Tallas:</p>
                                     <label>
-                                        ${tbl_for.talla1}, ${tbl_for.talla2}, ${tbl_for.talla3}
+                                        ${tbl_inc.talla1}, ${tbl_inc.talla2}, ${tbl_inc.talla3}
                                     </label>
                                 </div>
                                 <p class="text-right font-weight-bold"></p>
                                 <div class="text-right">
-                                    <label class="mr-2">${tbl_for.precio_dep} $</label>
+                                    <label class="mr-2">${tbl_inc.precio_dep} $</label>
                                     ${ConoceMas}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <script src="./js/visFormal"></script>`;
+                <script src="./js/visInicio1"></script>`;
 
-                $('#cardFormal').append(newTr);
-                $.getScript('./js/visFormal');
+                $('#cardInicio1').append(newTr);
+                $.getScript('./js/visInicio1');
             });
         })
         .catch(error => console.log('error', error));
@@ -47,31 +47,31 @@ $(document).ready(function () {
 
 function imprimirAlerta(j) {
     // Muestra la tarjeta y vacía su contenido
-    $('#cardFormalS').show();
-    $('#cardFormalS').empty(); // Borra cualquier contenido previo
+    $('#cardInicio1S').show();
+    $('#cardInicio1S').empty(); // Borra cualquier contenido previo
 
-    // Desplázate al inicio de la página
+    // Desplázate al Inicio1 de la página
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 
     // Realiza la petición para obtener los datos
-    fetch('http://localhost:3000/tbl_for')
+    fetch('http://localhost:3000/tbl_inc')
         .then(response => response.json())
         .then(data => {
             // Encuentra el producto deseado en la base de datos
-            var tbl_for = data.find(producto => producto.id === j);
+            var tbl_inc = data.find(producto => producto.id === j);
 
             // Borra cualquier contenido previo en la tarjeta
-            $('#cardFormalS').empty();
+            $('#cardInicio1S').empty();
 
             // Crea el contenido dinámico con los datos del producto
             var newTr2 = `<div class="container" style="margin-bottom:80px;">
                 <div class="row m-3">
                     <div class="col-lg-5 mt-2">
                         <div class="card mb-3 shadow border rounded">
-                            <img class="card-img img-fluid" src="${tbl_for.imagen1}" alt="Card image cap" id="product-detail">
+                            <img class="card-img img-fluid" src="${tbl_inc.imagen1}" alt="Card image cap" id="product-detail">
                         </div>
                         <div class="row">
                             <div class="col-1 align-self-center">
@@ -86,17 +86,17 @@ function imprimirAlerta(j) {
                                         <div class="row">
                                             <div class="col">
                                                 <a href="#">
-                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_for.imagen1}" alt="Product Image 1">
+                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_inc.imagen1}" alt="Product Image 1">
                                                 </a>
                                             </div>
                                             <div class="col">
                                                 <a href="#">
-                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_for.imagen2}" alt="Product Image 2">
+                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_inc.imagen2}" alt="Product Image 2">
                                                 </a>
                                             </div>
                                             <div class="col">
                                                 <a href="#">
-                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_for.imagen3}" alt="Product Image 3">
+                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_inc.imagen3}" alt="Product Image 3">
                                                 </a>
                                             </div>
                                         </div>
@@ -114,22 +114,22 @@ function imprimirAlerta(j) {
                     <div class="col-lg-7 mt-2">
                         <div class="card">
                             <div class="card-body shadow rounded p-4">
-                                <h1 class="h2">${tbl_for.nombre}</h1>
-                                <p class="h3 py-2">$ ${tbl_for.precio_dep}</p>
+                                <h1 class="h2">${tbl_inc.nombre}</h1>
+                                <p class="h3 py-2">$ ${tbl_inc.precio_dep}</p>
                                 <h6>Descripción:</h6>
-                                <p class="text-justify mt-2 mb-4 ">${tbl_for.descripcion2}</p>
+                                <p class="text-justify mt-2 mb-4 ">${tbl_inc.descripcion2}</p>
                                 <div class="row">
                                     <div class="col-auto">
                                         <div class="d-inline-block pb-3">
                                             <div class="d-inline-block mr-3 mb-3">Tallas:</div>
                                             <div class="d-inline-block">
-                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_for.talla1}">${tbl_for.talla1}</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_for.talla2}">${tbl_for.talla2}</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_for.talla3}">${tbl_for.talla3}</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_inc.talla1}">${tbl_inc.talla1}</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_inc.talla2}">${tbl_inc.talla2}</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_inc.talla3}">${tbl_inc.talla3}</span>
                                             </div>
-                                            <input type="hidden" id="product-size" value="${tbl_for.talla1}">
-                                            <input type="hidden" id="product-size" value="${tbl_for.talla2}">
-                                            <input type="hidden" id="product-size" value="${tbl_for.talla3}">
+                                            <input type="hidden" id="product-size" value="${tbl_inc.talla1}">
+                                            <input type="hidden" id="product-size" value="${tbl_inc.talla2}">
+                                            <input type="hidden" id="product-size" value="${tbl_inc.talla3}">
                                         </div>
                                     </div>
                                 </div>
@@ -201,11 +201,11 @@ function imprimirAlerta(j) {
             </script>`;
 
             // Agrega el nuevo contenido a la tarjeta
-            $('#cardFormalS').append(newTr2);
+            $('#cardInicio1S').append(newTr2);
 
             // Asegúrate de agregar el evento de click al botón
-            $('#cardFormalS button').eq(0).off('click'); // Elimina cualquier evento anterior
-            $('#cardFormalS button').eq(0).on('click', () => agregarAlCarrito(tbl_for));
+            $('#cardInicio1S button').eq(0).off('click'); // Elimina cualquier evento anterior
+            $('#cardInicio1S button').eq(0).on('click', () => agregarAlCarrito(tbl_inc));
         })
         .catch(error => console.log('Error:', error));
 }
