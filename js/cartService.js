@@ -1,4 +1,5 @@
 function agregarAlCarrito(producto) {
+    console.log(producto);
     const memoria = JSON.parse(localStorage.getItem("zapatillas"));
     const tallaSeleccionada = document.getElementById("product-size").value; // Obtener la talla seleccionada
     if (!memoria) {
@@ -10,7 +11,7 @@ function agregarAlCarrito(producto) {
         const nuevoMemoria = memoria;
         if (indiceProducto === -1) {
             const nuevoProducto = getNuevoProductoParaMemoria(producto);
-            nuevoProducto.talla = tallaSeleccionada; // Incluir la talla en el producto
+            nuevoProducto.talla = tallaSeleccionada; // Incluir la talla en el producto 
             nuevoMemoria.push(nuevoProducto);
         } else {
             nuevoMemoria[indiceProducto].cantidad++;

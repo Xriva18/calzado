@@ -17,6 +17,24 @@ app.get('/tbl_dep', (req, res) => {
         }
     });
 });
+app.get('/tbl_for', (req, res) => {
+    connection.query('SELECT * FROM tbl_for', (err, result) => {
+        if (err) {
+            res.status(500).send('Error al obtener los datos de la base de datos');
+        } else {
+            res.json(result);
+        }
+    });
+});
+app.get('/tbl_inc', (req, res) => {
+    connection.query('SELECT * FROM tbl_inc', (err, result) => {
+        if (err) {
+            res.status(500).send('Error al obtener los datos de la base de datos');
+        } else {
+            res.json(result);
+        }
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
