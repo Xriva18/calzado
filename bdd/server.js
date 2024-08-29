@@ -8,6 +8,11 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
+
+//Trae datos de la tabla tbl_dep
 app.get('/tbl_dep', (req, res) => {
     connection.query('SELECT * FROM tbl_dep', (err, result) => {
         if (err) {
@@ -17,6 +22,7 @@ app.get('/tbl_dep', (req, res) => {
         }
     });
 });
+//Trae datos de la tabla tbl_for
 app.get('/tbl_for', (req, res) => {
     connection.query('SELECT * FROM tbl_for', (err, result) => {
         if (err) {
@@ -27,6 +33,7 @@ app.get('/tbl_for', (req, res) => {
     });
 });
 
+//Trae datos de la tabla tbl_inc
 app.get('/tbl_inc', (req, res) => {
     connection.query('SELECT * FROM tbl_inc', (err, result) => {
         if (err) {
@@ -37,6 +44,28 @@ app.get('/tbl_inc', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+
+// Ruta para enviar datos a la tabla tbl_contactanos
+app.post('/tbl_contactanos', (req, res) => {
+    const { nombre_con, cedula_con, correo_con, telefono_con, razon_con, otro_con } = req.body;
+
+    // Validación básica de los campos
+    if (!nombre_con || !cedula_con || !correo_con || !telefono_con || !razon_con) {
+        return res.status(400).send('Por favor, complete todos los campos obligatorios');
+    }
+
+    // Consulta para insertar datos en la tabla tbl_contactanos
+    const query = `INSERT INTO tbl_contactanos (nombre_con, cedula_con, correo_con, telefono_con, razon_con, otro_con) 
+                   VALUES (?, ?, ?, ?, ?, ?)`;
+
+    // Ejecutar la consulta con los valores proporcionados
+    connection.query(query, [nombre_con, cedula_con, correo_con, telefono_con, razon_con, otro_con], (err, result) => {
+        if (err) {
+            console.error('Error al insertar datos:', err);
+            return res.status(500).send('Error al insertar los datos en la base de datos');
+        }
+        res.status(200).send('Datos insertados correctamente');
+    });
 });
+
+
