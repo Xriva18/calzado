@@ -67,5 +67,27 @@ app.post('/tbl_contactanos', (req, res) => {
         res.status(200).send('Datos insertados correctamente');
     });
 });
+// Ruta para enviar datos a la tabla tbl_clientes
+app.post('/tbl_clientes', (req, res) => {
+    const { nombre_cli, cedula_cli, correo_cli } = req.body;
+
+    // Validación de los campos obligatorios
+    if (!nombre_cli || !cedula_cli || !correo_cli) {
+        return res.status(400).send('Por favor, complete todos los campos obligatorios');
+    }
+
+    // Consulta SQL para insertar datos
+    const query = `INSERT INTO tbl_clientes (nombre_cli, cedula_cli, correo_cli) 
+                   VALUES (?, ?, ?)`;
+
+    connection.query(query, [nombre_cli, cedula_cli, correo_cli], (err, result) => {
+        if (err) {
+            console.error('Error al insertar datos:', err);
+            return res.status(500).send('Error al insertar los datos en la base de datos');
+        }
+
+        res.status(200).send('Datos insertados correctamente');
+    });
+})
 
 

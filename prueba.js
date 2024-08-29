@@ -44,3 +44,35 @@ const contactData = {
     razon_con: 'Consulta',
     otro_con: 'Tengo una consulta sobre sus servicios.'
 };
+
+
+const clienteData = {
+    nombre_cli: 'Juan Pérez',
+    cedula_cli: '0123456789',
+    correo_cli: 'juan.perez@example.com'
+};
+
+function enviarCliente() {
+    alert('Enviando datos...');
+    fetch('http://localhost:3000/tbl_clientes', {
+        method: 'POST', // Método de la solicitud
+        headers: {
+            'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
+        },
+        body: JSON.stringify(clienteData) // Convierte los datos a JSON para enviarlos
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al enviar los datos');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+            alert('Datos enviados correctamente');
+        })
+        .catch(error => {
+            console.error('Hubo un error al enviar los datos:', error);
+            alert('Hubo un error XD');
+        });
+}
