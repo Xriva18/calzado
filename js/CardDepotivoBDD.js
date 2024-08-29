@@ -27,7 +27,7 @@ $(document).ready(function () {
                                 </div>
                                 <p class="text-right font-weight-bold"></p>
                                 <div class="text-right">
-                                    <label class="mr-2">${tbl_dep.precio_dep} $</label>
+                                    <label class="mr-2">${tbl_dep.precio} $</label>
                                     ${ConoceMas}
                                 </div>
                             </div>
@@ -115,7 +115,7 @@ function imprimirAlerta(j) {
                         <div class="card">
                             <div class="card-body shadow rounded p-4">
                                 <h1 class="h2">${tbl_dep.nombre}</h1>
-                                <p class="h3 py-2">$ ${tbl_dep.precio_dep}</p>
+                                <p class="h3 py-2">$ ${tbl_dep.precio}</p>
                                 <h6>Descripción:</h6>
                                 <p class="text-justify mt-2 mb-4 ">${tbl_dep.descripcion2}</p>
                                 <div class="row">
