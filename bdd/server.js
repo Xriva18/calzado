@@ -90,4 +90,27 @@ app.post('/tbl_clientes', (req, res) => {
     });
 })
 
+// Ruta para enviar datos a la tabla tbl_metodo_pag
+app.post('/tbl_metodo_pag', (req, res) => {
+    const { descripcion_met, comprobante_met, id_cli } = req.body;
+
+    // Validación de los campos obligatorios
+    if (!descripcion_met || !id_cli) {
+        return res.status(400).send('Por favor, complete todos los campos obligatorios');
+    }
+
+    // Consulta SQL para insertar datos
+    const query = `INSERT INTO tbl_metodo_pag ( descripcion_met,comprobante_met, id_cli	) 
+                   VALUES (?, ?, ?)`;
+
+    connection.query(query, [descripcion_met, comprobante_met, id_cli], (err, result) => {
+        if (err) {
+            console.error('Error al insertar datos:', err);
+            return res.status(500).send('Error al insertar los datos en la base de datos');
+        }
+
+        res.status(200).send('Datos insertados correctamente');
+    });
+})
+
 

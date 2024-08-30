@@ -137,21 +137,18 @@ function validarFormularioFact() {
                 }
             }
         }
-
-        GenerarPDF();
         const clienteData = {
-            nombre_cli: 'Juan Pérez',
-            cedula_cli: '0123456789',
-            correo_cli: 'juanperez@example.com'
+            nombre_cli: nombre,
+            cedula_cli: cedula,
+            correo_cli: correo
         };
-        enviar_cliente(clienteData);
+        enviarCliente(clienteData);
         return true;
     });
 }
 
 
-function enviar_cliente(clienteData) {
-    alert('Enviando datos...');
+function enviarCliente(clienteData) {
     fetch('http://localhost:3000/tbl_clientes', {
         method: 'POST', // Método de la solicitud
         headers: {
@@ -167,7 +164,16 @@ function enviar_cliente(clienteData) {
         })
         .then(data => {
             console.log('Respuesta del servidor:', data);
-            alert('Datos enviados correctamente');
+
+            swal("Producto comprado", "Compra realizada", "success");
+
+            const resultadoPDF = GenerarPDF();
+            if (resultadoPDF == 1) {
+                setTimeout(() => {
+                    localStorage.clear();
+                    location.reload();
+                }, 3000); // Aquí puedes ajustar el tiempo en milisegundos
+            }
         })
         .catch(error => {
             console.error('Hubo un error al enviar los datos:', error);
@@ -289,13 +295,7 @@ function GenerarPDF() {
     doc.text(x - 10, y + 8, $('#precio-total').text());
 
 
-    //elimna zapatillas
     var nombreArchivo = 'Factura_0.pdf';
     doc.save(nombreArchivo);
-    // Limpiar localStorage
-    localStorage.clear();
-
-    // Recargar la página
-    location.reload();
-
+    return 1;
 }
