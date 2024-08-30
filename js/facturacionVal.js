@@ -64,6 +64,9 @@ function validarFormularioFact() {
         const cvc = $('#txtCVC').val();
         const fecha = $('#txtFechaVencimiento').val();
         const comprobante = $('#input-foto')[0].files.length;
+        const numeroComprobante = $('#txtNumeroComprobante').val();
+        var tarjeta_comprobantete;
+        var descripcion_enviar;
 
         if (nombre === '') {
             swal("Error", "El campo Nombre es obligatorio", "error");
@@ -83,6 +86,8 @@ function validarFormularioFact() {
         }
         if ($('#rbTarjeta').is(':checked')) {
 
+            tarjeta_comprobantete = tarjeta;
+            descripcion_enviar = "Tarjeta";
             if (tarjeta === '') {
                 swal("Error", "El campo Numero Tarjeta es obligatorio", "error");
                 return false;
@@ -101,6 +106,8 @@ function validarFormularioFact() {
             }
         }
         if ($('#rbDeposito').is(':checked')) {
+            tarjeta_comprobantete = numeroComprobante;
+            descripcion_enviar = "Deposito";
             if (comprobante === 0) {
                 swal("Error", "Debe subir el comprobante es obligatorio", "error");
                 return false;
@@ -142,13 +149,81 @@ function validarFormularioFact() {
             cedula_cli: cedula,
             correo_cli: correo
         };
-        enviarCliente(clienteData);
-        return true;
+
+        let repetidosUsers;
+
+        fetch('http://localhost:3000/get-id-cli', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
+            },
+            body: JSON.stringify(clienteData) // Enviamos los datos del cliente
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al obtener el ID del cliente');
+                }
+                return response.json(); // Parseamos la respuesta a JSON
+            })
+            .then(data => {
+                repetidosUsers = data.id_cli;
+                alert('ID del cliente obtenido: ' + repetidosUsers);
+
+                if (repetidosUsers != -1) {
+                    alert('El cliente existe: ' + repetidosUsers);
+                } else {
+                    alert('Cliente no existe');
+                    enviarCliente(clienteData);
+                }
+                enviarMetodo(clienteData, tarjeta_comprobantete, descripcion_enviar);
+                //Las demas funciones aca
+                const resultadoPDF = GenerarPDF();
+                if (resultadoPDF == 1) {
+                    setTimeout(() => {
+                        limipar();
+                    }, 5000);
+                }
+                return true;
+            })
+            .catch(error => {
+                console.error('Hubo un problema con la solicitud Fetch:', error);
+            });
+
     });
 }
 
+function obtenerIdCliente(clienteData) {
+
+    // Primero obtenemos el id_cli
+    fetch('http://localhost:3000/get-id-cli', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
+        },
+        body: JSON.stringify(clienteData) // Enviamos los datos del cliente
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener el ID del cliente');
+            }
+            return response.json(); // Parseamos la respuesta a JSON
+        })
+        .then(data => {
+            // Aquí tenemos el id_cli que necesitamos
+            const id_cli = data.id_cli;
+            alert('ID del cliente obtenido: ' + id_cli);
+            return id_cli; // Retornamos el id_cli
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('No se pudo obtener el ID del cliente');
+            return -1; // Retornamos null en caso de error
+        });
+}
 
 function enviarCliente(clienteData) {
+    alert('Enviando datos del cliente...');
+    alert(JSON.stringify(clienteData));
     fetch('http://localhost:3000/tbl_clientes', {
         method: 'POST', // Método de la solicitud
         headers: {
@@ -158,28 +233,84 @@ function enviarCliente(clienteData) {
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error al enviar los datos');
+                throw new Error('Error al enviar los datos enviarCliente:');
             }
             return response.text();
         })
         .then(data => {
             console.log('Respuesta del servidor:', data);
-
             swal("Producto comprado", "Compra realizada", "success");
 
-            const resultadoPDF = GenerarPDF();
-            if (resultadoPDF == 1) {
-                setTimeout(() => {
-                    localStorage.clear();
-                    location.reload();
-                }, 3000); // Aquí puedes ajustar el tiempo en milisegundos
-            }
         })
         .catch(error => {
-            console.error('Hubo un error al enviar los datos:', error);
+            console.error('Hubo un error al enviar los datos enviarCliente:', error);
             alert('Hubo un error XD');
         });
 }
+
+
+//enviar Metdoo de pago a la bdd
+
+function enviarMetodo(clienteData, tarjeta_comprobantete, descripcion_enviar) {
+    alert('Obteniendo ID del cliente...');
+
+    // Primero obtenemos el id_cli
+    fetch('http://localhost:3000/get-id-cli', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
+        },
+        body: JSON.stringify(clienteData) // Enviamos los datos del cliente
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener el ID del cliente');
+            }
+            return response.json(); // Parseamos la respuesta a JSON
+        })
+        .then(data => {
+            // Aquí tenemos el id_cli que necesitamos
+            const id_cli = data.id_cli;
+            alert('ID del cliente obtenido: ' + id_cli);
+
+            // Ahora procedemos a enviar los datos del método de pago usando el id_cli
+            const metodoData = {
+                descripcion_met: descripcion_enviar, // Usamos el método de pago seleccionado
+                comprobante_met: tarjeta_comprobantete, // Usamos el comprobante ingresado
+                id_cli: id_cli// Usamos el id_cli obtenido
+            };
+
+            alert('Enviando datos del método de pago...');
+            alert(JSON.stringify(metodoData));
+
+            // Enviamos los datos del método de pago
+            return fetch('http://localhost:3000/tbl_metodo_pag', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(metodoData)
+            });
+        })
+
+
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al enviar los datos del método de pago');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+            alert('Datos enviados correctamente');
+        })
+        .catch(error => {
+            console.error('Hubo un error:', error);
+            alert('Hubo un error al procesar la solicitud enviarMetodo');
+        });
+}
+
+
 
 ///onclick="if (validarFormularioFact()) { GenerarPDF(); alert('Su pago se realizó con éxito'); }
 function GenerarPDF() {
@@ -298,4 +429,10 @@ function GenerarPDF() {
     var nombreArchivo = 'Factura_0.pdf';
     doc.save(nombreArchivo);
     return 1;
+}
+
+function limipar() {
+    alert('Limioando');
+    localStorage.clear();
+    location.reload();
 }

@@ -84,15 +84,14 @@ function funcion_llama_cliente() {
 }
 
 
-const metodoData = {
+/*const metodoData = {
     descr_met: 'Prueba3',
     comprobante_met: '0123456789',
     id_cli: '5' //poner el mismo que el de la compra
-};
-
-function enviarMetodo() {
-    alert('Enviando datos...');
-    fetch('http://localhost:3000/tbl_metodo_pag', {
+};*/
+function enviarCliente(clienteData) {
+    alert('Enviando datos del cliente...');
+    fetch('http://localhost:3000/tbl_clientes', {
         method: 'POST', // Método de la solicitud
         headers: {
             'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
@@ -107,7 +106,16 @@ function enviarMetodo() {
         })
         .then(data => {
             console.log('Respuesta del servidor:', data);
-            alert('Datos enviados correctamente');
+
+            swal("Producto comprado", "Compra realizada", "success");
+
+            const resultadoPDF = GenerarPDF();
+            /*if (resultadoPDF == 1) {
+                setTimeout(() => {
+                    localStorage.clear();
+                    location.reload();
+                }, 3000); // Aquí puedes ajustar el tiempo en milisegundos
+            }*/
         })
         .catch(error => {
             console.error('Hubo un error al enviar los datos:', error);
@@ -115,8 +123,66 @@ function enviarMetodo() {
         });
 }
 
-function funcion_llama_metodo() {
+
+
+function enviarMetodo(clienteData) {
+    alert('Obteniendo ID del cliente...');
+    // Primero obtenemos el id_cli
+    fetch('http://localhost:3000/get-id-cli', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
+        },
+        body: JSON.stringify(clienteData) // Enviamos los datos del cliente
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener el ID del cliente');
+            }
+            return response.json(); // Parseamos la respuesta a JSON
+        })
+        .then(data => {
+            // Aquí tenemos el id_cli que necesitamos
+            const id_cli = data.id_cli;
+            alert('ID del cliente obtenido: ' + id_cli);
+
+            // Ahora procedemos a enviar los datos del método de pago usando el id_cli
+            const metodoData = {
+                descripcion_met: 'Envio metodo',
+                comprobante_met: 'Con cliente',
+                id_cli: id_cli // Usamos el id_cli obtenido
+            };
+
+            alert('Enviando datos del método de pago...');
+            alert(JSON.stringify(metodoData));
+
+            // Enviamos los datos del método de pago
+            return fetch('http://localhost:3000/tbl_metodo_pag', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(metodoData)
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al enviar los datos del método de pago');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+            alert('Datos enviados correctamente');
+        })
+        .catch(error => {
+            console.error('Hubo un error:', error);
+            alert('Hubo un error al procesar la solicitud');
+        });
+}
+
+function funcion_llama_cliente() {
     alert("entro");
-    enviarMetodo;
+    enviarCliente();
     alert("salio");
 }

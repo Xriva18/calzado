@@ -100,7 +100,7 @@ app.post('/tbl_metodo_pag', (req, res) => {
     }
 
     // Consulta SQL para insertar datos
-    const query = `INSERT INTO tbl_metodo_pag ( descripcion_met,comprobante_met, id_cli	) 
+    const query = `INSERT INTO tbl_metodo_pago ( descripcion_met,comprobante_met, id_cli	) 
                    VALUES (?, ?, ?)`;
 
     connection.query(query, [descripcion_met, comprobante_met, id_cli], (err, result) => {
@@ -114,3 +114,29 @@ app.post('/tbl_metodo_pag', (req, res) => {
 })
 
 
+app.post('/get-id-cli', (req, res) => {
+    const { nombre_cli, cedula_cli, correo_cli } = req.body;
+
+    // Validación de los campos obligatorios
+    if (!nombre_cli || !cedula_cli || !correo_cli) {
+        return res.status(400).send('Por favor, complete todos los campos obligatorios');
+    }
+
+    // Consulta SQL para obtener el id_cli basado en los valores proporcionados
+    const query = `SELECT id_cli FROM tbl_clientes WHERE nombre_cli = ? AND cedula_cli = ? AND correo_cli = ?`;
+
+    connection.query(query, [nombre_cli, cedula_cli, correo_cli], (err, result) => {
+        if (err) {
+            console.error('Error al obtener el id_cli:', err);
+            return res.status(500).send('Error al consultar la base de datos');
+        }
+
+        if (result.length > 0) {
+            // Si se encuentra el cliente, devolver el id_cli
+            res.status(200).json({ id_cli: result[0].id_cli });
+        } else {
+            // Si no se encuentra ningún cliente que coincida, devolver id_cli = -1
+            res.status(200).json({ id_cli: -1 });
+        }
+    });
+});
