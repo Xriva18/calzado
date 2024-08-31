@@ -8,8 +8,9 @@ $(document).ready(function () {
         .then(data => {
             data.forEach(tbl_for_ver => {
                 i = tbl_for_ver.id;
-                var ConoceMas = '<a class="btn btn-primary" onclick="imprimirAlerta(' + i + ');">Conoce Más</a>';
-                var newTr = `
+                if (i > 0) {
+                    var ConoceMas = '<a class="btn btn-primary" onclick="imprimirAlerta(' + i + ');">Conoce Más</a>';
+                    var newTr = `
                  <div class="col-md-4 my-2">
                     <div class="card shadow border rounded">
                         <img src="${tbl_for_ver.imagen1}" class="card-img-top" alt="...">
@@ -36,8 +37,9 @@ $(document).ready(function () {
                 </div>
                 <script src="./js/visFormal"></script>`;
 
-                $('#cardFormal').append(newTr);
-                $.getScript('./js/visFormal');
+                    $('#cardFormal').append(newTr);
+                    $.getScript('./js/visFormal');
+                }
             });
         })
         .catch(error => console.log('error', error));

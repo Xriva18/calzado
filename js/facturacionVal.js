@@ -317,8 +317,8 @@ function enviarCompra() {
             compraData = {
                 cantidad_comp: 1,
                 id_dep: 1,
-                id_for: null,
-                id_inc: 1,
+                id_for: -1,
+                id_inc: -1,
                 id_met: id_met,
             };
 
