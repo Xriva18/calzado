@@ -1,3 +1,12 @@
+//Variables globales
+
+
+var clienteData;
+var metodoData;
+var tarjeta_comprobantete;
+var descripcion_enviar;
+
+
 const inputFile = document.querySelector('#input-foto');
 const image = document.querySelector('#previa');
 const tarjetaDiv = document.querySelector('#tarjetaDiv');
@@ -65,8 +74,7 @@ function validarFormularioFact() {
         const fecha = $('#txtFechaVencimiento').val();
         const comprobante = $('#input-foto')[0].files.length;
         const numeroComprobante = $('#txtNumeroComprobante').val();
-        var tarjeta_comprobantete;
-        var descripcion_enviar;
+
 
         if (nombre === '') {
             swal("Error", "El campo Nombre es obligatorio", "error");
@@ -144,55 +152,61 @@ function validarFormularioFact() {
                 }
             }
         }
-        const clienteData = {
+        clienteData = {
             nombre_cli: nombre,
             cedula_cli: cedula,
             correo_cli: correo
         };
-
-        let repetidosUsers;
-
-        fetch('http://localhost:3000/get-id-cli', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
-            },
-            body: JSON.stringify(clienteData) // Enviamos los datos del cliente
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al obtener el ID del cliente');
-                }
-                return response.json(); // Parseamos la respuesta a JSON
-            })
-            .then(data => {
-                repetidosUsers = data.id_cli;
-                alert('ID del cliente obtenido: ' + repetidosUsers);
-
-                if (repetidosUsers != -1) {
-                    alert('El cliente existe: ' + repetidosUsers);
-                } else {
-                    alert('Cliente no existe');
-                    enviarCliente(clienteData);
-                }
-                enviarMetodo(clienteData, tarjeta_comprobantete, descripcion_enviar);
-                //Las demas funciones aca
-                const resultadoPDF = GenerarPDF();
-                if (resultadoPDF == 1) {
-                    setTimeout(() => {
-                        limipar();
-                    }, 5000);
-                }
-                return true;
-            })
-            .catch(error => {
-                console.error('Hubo un problema con la solicitud Fetch:', error);
-            });
-
+        alert('Datos validados correctamente');
+        envio_datos_bdd();
     });
 }
 
-function obtenerIdCliente(clienteData) {
+function envio_datos_bdd() {
+    alert('Estro a funcion');
+    let repetidosUsers;
+    fetch('http://localhost:3000/get-id-cli', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
+        },
+        body: JSON.stringify(clienteData) // Enviamos los datos del cliente
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener el ID del cliente');
+            }
+            return response.json(); // Parseamos la respuesta a JSON
+        })
+        .then(data => {
+            repetidosUsers = data.id_cli;
+            alert('ID del cliente obtenido: ' + repetidosUsers);
+
+            if (repetidosUsers != -1) {
+                alert('El cliente existe: ' + repetidosUsers);
+            } else {
+                alert('Cliente no existe');
+                enviarCliente();
+            }
+            enviarMetodo();
+            //Las que extrae id_meto
+
+            //fin de edxtracion de id_metodo
+            const resultadoPDF = GenerarPDF();
+            if (resultadoPDF == 1) {
+                setTimeout(() => {
+                    limipar();
+                }, 5000);
+            }
+            return true;
+        })
+        .catch(error => {
+            console.error('Hubo un problema con la solicitud Fetch:', error);
+        });
+}
+
+
+function obtenerIdCliente() {
 
     // Primero obtenemos el id_cli
     fetch('http://localhost:3000/get-id-cli', {
@@ -221,7 +235,7 @@ function obtenerIdCliente(clienteData) {
         });
 }
 
-function enviarCliente(clienteData) {
+function enviarCliente() {
     alert('Enviando datos del cliente...');
     alert(JSON.stringify(clienteData));
     fetch('http://localhost:3000/tbl_clientes', {
@@ -251,7 +265,7 @@ function enviarCliente(clienteData) {
 
 //enviar Metdoo de pago a la bdd
 
-function enviarMetodo(clienteData, tarjeta_comprobantete, descripcion_enviar) {
+function enviarMetodo() {
     alert('Obteniendo ID del cliente...');
 
     // Primero obtenemos el id_cli
@@ -272,13 +286,12 @@ function enviarMetodo(clienteData, tarjeta_comprobantete, descripcion_enviar) {
             // Aquí tenemos el id_cli que necesitamos
             const id_cli = data.id_cli;
             alert('ID del cliente obtenido: ' + id_cli);
-
-            // Ahora procedemos a enviar los datos del método de pago usando el id_cli
-            const metodoData = {
-                descripcion_met: descripcion_enviar, // Usamos el método de pago seleccionado
+            metodoData = {
+                descripcion_met: descripcion_enviar,
                 comprobante_met: tarjeta_comprobantete, // Usamos el comprobante ingresado
-                id_cli: id_cli// Usamos el id_cli obtenido
+                id_cli: id_cli
             };
+
 
             alert('Enviando datos del método de pago...');
             alert(JSON.stringify(metodoData));
