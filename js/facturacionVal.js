@@ -3,6 +3,7 @@
 
 var clienteData;
 var metodoData;
+var compraData;
 var tarjeta_comprobantete;
 var descripcion_enviar;
 
@@ -163,7 +164,6 @@ function validarFormularioFact() {
 }
 
 function envio_datos_bdd() {
-    alert('Estro a funcion');
     let repetidosUsers;
     fetch('http://localhost:3000/get-id-cli', {
         method: 'POST',
@@ -179,6 +179,7 @@ function envio_datos_bdd() {
             return response.json(); // Parseamos la respuesta a JSON
         })
         .then(data => {
+            alert('funcion envio_datos_bdd');
             repetidosUsers = data.id_cli;
             alert('ID del cliente obtenido: ' + repetidosUsers);
 
@@ -189,9 +190,6 @@ function envio_datos_bdd() {
                 enviarCliente();
             }
             enviarMetodo();
-            //Las que extrae id_meto
-
-            //fin de edxtracion de id_metodo
             const resultadoPDF = GenerarPDF();
             if (resultadoPDF == 1) {
                 setTimeout(() => {
@@ -199,44 +197,14 @@ function envio_datos_bdd() {
                 }, 5000);
             }
             return true;
+            alert('termino funcion envio_datos_bdd');
         })
         .catch(error => {
             console.error('Hubo un problema con la solicitud Fetch:', error);
         });
 }
 
-
-function obtenerIdCliente() {
-
-    // Primero obtenemos el id_cli
-    fetch('http://localhost:3000/get-id-cli', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
-        },
-        body: JSON.stringify(clienteData) // Enviamos los datos del cliente
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error al obtener el ID del cliente');
-            }
-            return response.json(); // Parseamos la respuesta a JSON
-        })
-        .then(data => {
-            // Aquí tenemos el id_cli que necesitamos
-            const id_cli = data.id_cli;
-            alert('ID del cliente obtenido: ' + id_cli);
-            return id_cli; // Retornamos el id_cli
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('No se pudo obtener el ID del cliente');
-            return -1; // Retornamos null en caso de error
-        });
-}
-
 function enviarCliente() {
-    alert('Enviando datos del cliente...');
     alert(JSON.stringify(clienteData));
     fetch('http://localhost:3000/tbl_clientes', {
         method: 'POST', // Método de la solicitud
@@ -252,9 +220,10 @@ function enviarCliente() {
             return response.text();
         })
         .then(data => {
+            alert('funcion enviarCliente');
             console.log('Respuesta del servidor:', data);
             swal("Producto comprado", "Compra realizada", "success");
-
+            alert("Termino funcion enviarCliente");
         })
         .catch(error => {
             console.error('Hubo un error al enviar los datos enviarCliente:', error);
@@ -262,12 +231,7 @@ function enviarCliente() {
         });
 }
 
-
-//enviar Metdoo de pago a la bdd
-
 function enviarMetodo() {
-    alert('Obteniendo ID del cliente...');
-
     // Primero obtenemos el id_cli
     fetch('http://localhost:3000/get-id-cli', {
         method: 'POST',
@@ -283,6 +247,7 @@ function enviarMetodo() {
             return response.json(); // Parseamos la respuesta a JSON
         })
         .then(data => {
+            alert('Funcion enviarMetodo extracion id_cli');
             // Aquí tenemos el id_cli que necesitamos
             const id_cli = data.id_cli;
             alert('ID del cliente obtenido: ' + id_cli);
@@ -292,9 +257,9 @@ function enviarMetodo() {
                 id_cli: id_cli
             };
 
-
             alert('Enviando datos del método de pago...');
             alert(JSON.stringify(metodoData));
+            alert('termino Funcion enviarMetodo extracion id_cli');
 
             // Enviamos los datos del método de pago
             return fetch('http://localhost:3000/tbl_metodo_pag', {
@@ -306,6 +271,68 @@ function enviarMetodo() {
             });
         })
 
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al enviar los datos del método de pago');
+            }
+            return response.text();
+        })
+        .then(data => {
+
+            //Despues d eaver enviado los datos 
+            alert(" funcion enviarMetodo");
+            console.log('Respuesta del servidor:', data);
+            alert('Datos enviados correctamente');
+            alert("termino funcion enviarMetodo");
+            enviarCompra()
+        })
+        .catch(error => {
+            console.error('Hubo un error:', error);
+            alert('Hubo un error al procesar la solicitud enviarMetodo');
+        });
+}
+
+function enviarCompra() {
+    alert("Envaindo la compra")
+    // Primero obtenemos el id_cli
+    fetch('http://localhost:3000/get-id-metodo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
+        },
+        body: JSON.stringify(metodoData) // Enviamos los datos del cliente
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener el ID del metodo');
+            }
+            return response.json(); // Parseamos la respuesta a JSON
+        })
+        .then(data => {
+            alert('Funcion enviarMetodo extracion id_met');
+            // Aquí tenemos el id_cli que necesitamos
+            const id_met = data.id_met;
+            alert('ID del cliente obtenido: ' + id_met);
+            compraData = {
+                cantidad_comp: 1,
+                id_dep: 1,
+                id_for: 0,
+                id_inc: 0,
+                id_met: id_met,
+            };
+
+            alert('Enviando datos de la compra de pago...');
+            alert(JSON.stringify(compraData));
+
+            // Enviamos los datos del método de pago
+            return fetch('http://localhost:3000/tbl_compras', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(compraData)
+            });
+        })
 
         .then(response => {
             if (!response.ok) {
@@ -314,16 +341,13 @@ function enviarMetodo() {
             return response.text();
         })
         .then(data => {
-            console.log('Respuesta del servidor:', data);
-            alert('Datos enviados correctamente');
+            alert("Se inserto Correctamente las compras");
         })
         .catch(error => {
             console.error('Hubo un error:', error);
             alert('Hubo un error al procesar la solicitud enviarMetodo');
         });
 }
-
-
 
 ///onclick="if (validarFormularioFact()) { GenerarPDF(); alert('Su pago se realizó con éxito'); }
 function GenerarPDF() {

@@ -3,31 +3,31 @@
 $(document).ready(function () {
     $('#cardDeportivo').empty();
     $('#cardDeportivoS').hide();
-    fetch('http://localhost:3000/tbl_dep')
+    fetch('http://localhost:3000/tbl_dep_ver')
         .then(response => response.json())
         .then(data => {
-            data.forEach(tbl_dep => {
-                i = tbl_dep.id;
+            data.forEach(tbl_dep_ver => {
+                i = tbl_dep_ver.id;
                 var ConoceMas = '<a class="btn btn-primary" onclick="imprimirAlerta(' + i + ');">Conoce Más</a>';
                 var newTr = `
                  <div class="col-md-4 my-2">
                     <div class="card shadow border rounded">
-                        <img src="${tbl_dep.imagen1}" class="card-img-top" alt="...">
+                        <img src="${tbl_dep_ver.imagen1}" class="card-img-top" alt="...">
                         <div class="card-body border" style="height: 300px; background-color: #e3f2fd;">
                             <div style="height: 10%;">
-                                <h5 class="card-title">${tbl_dep.nombre} </h5>
+                                <h5 class="card-title">${tbl_dep_ver.nombre} </h5>
                             </div>
                             <div class="card-text mt-4" style="height: 60%;">
-                                <p class="text-justify" style="height: 85%;">${tbl_dep.descripcion}</p>
+                                <p class="text-justify" style="height: 85%;">${tbl_dep_ver.descripcion}</p>
                                 <div class="row text-right d-flex justify-content-end mr-2 mb-3">
                                     <p class="font-weight-bold mr-3">Tallas:</p>
                                     <label>
-                                        ${tbl_dep.talla1}, ${tbl_dep.talla2}, ${tbl_dep.talla3}
+                                        ${tbl_dep_ver.talla1}, ${tbl_dep_ver.talla2}, ${tbl_dep_ver.talla3}
                                     </label>
                                 </div>
                                 <p class="text-right font-weight-bold"></p>
                                 <div class="text-right">
-                                    <label class="mr-2">${tbl_dep.precio} $</label>
+                                    <label class="mr-2">${tbl_dep_ver.precio} $</label>
                                     ${ConoceMas}
                                 </div>
                             </div>
@@ -57,11 +57,11 @@ function imprimirAlerta(j) {
     });
 
     // Realiza la petición para obtener los datos
-    fetch('http://localhost:3000/tbl_dep')
+    fetch('http://localhost:3000/tbl_dep_ver')
         .then(response => response.json())
         .then(data => {
             // Encuentra el producto deseado en la base de datos
-            var tbl_dep = data.find(producto => producto.id === j);
+            var tbl_dep_ver = data.find(producto => producto.id === j);
 
             // Borra cualquier contenido previo en la tarjeta
             $('#cardDeportivoS').empty();
@@ -71,7 +71,7 @@ function imprimirAlerta(j) {
                 <div class="row m-3">
                     <div class="col-lg-5 mt-2">
                         <div class="card mb-3 shadow border rounded">
-                            <img class="card-img img-fluid" src="${tbl_dep.imagen1}" alt="Card image cap" id="product-detail">
+                            <img class="card-img img-fluid" src="${tbl_dep_ver.imagen1}" alt="Card image cap" id="product-detail">
                         </div>
                         <div class="row">
                             <div class="col-1 align-self-center">
@@ -86,17 +86,17 @@ function imprimirAlerta(j) {
                                         <div class="row">
                                             <div class="col">
                                                 <a href="#">
-                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_dep.imagen1}" alt="Product Image 1">
+                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_dep_ver.imagen1}" alt="Product Image 1">
                                                 </a>
                                             </div>
                                             <div class="col">
                                                 <a href="#">
-                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_dep.imagen2}" alt="Product Image 2">
+                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_dep_ver.imagen2}" alt="Product Image 2">
                                                 </a>
                                             </div>
                                             <div class="col">
                                                 <a href="#">
-                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_dep.imagen3}" alt="Product Image 3">
+                                                    <img class="card-img img-fluid shadow border rounded" style="height: 120px;" src="${tbl_dep_ver.imagen3}" alt="Product Image 3">
                                                 </a>
                                             </div>
                                         </div>
@@ -114,22 +114,22 @@ function imprimirAlerta(j) {
                     <div class="col-lg-7 mt-2">
                         <div class="card">
                             <div class="card-body shadow rounded p-4">
-                                <h1 class="h2">${tbl_dep.nombre}</h1>
-                                <p class="h3 py-2">$ ${tbl_dep.precio}</p>
+                                <h1 class="h2">${tbl_dep_ver.nombre}</h1>
+                                <p class="h3 py-2">$ ${tbl_dep_ver.precio}</p>
                                 <h6>Descripción:</h6>
-                                <p class="text-justify mt-2 mb-4 ">${tbl_dep.descripcion2}</p>
+                                <p class="text-justify mt-2 mb-4 ">${tbl_dep_ver.descripcion2}</p>
                                 <div class="row">
                                     <div class="col-auto">
                                         <div class="d-inline-block pb-3">
                                             <div class="d-inline-block mr-3 mb-3">Tallas:</div>
                                             <div class="d-inline-block">
-                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_dep.talla1}">${tbl_dep.talla1}</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_dep.talla2}">${tbl_dep.talla2}</span>
-                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_dep.talla3}">${tbl_dep.talla3}</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_dep_ver.talla1}">${tbl_dep_ver.talla1}</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_dep_ver.talla2}">${tbl_dep_ver.talla2}</span>
+                                                <span class="btn btn-primary btn-size text-white m-1" data-value="${tbl_dep_ver.talla3}">${tbl_dep_ver.talla3}</span>
                                             </div>
-                                            <input type="hidden" id="product-size" value="${tbl_dep.talla1}">
-                                            <input type="hidden" id="product-size" value="${tbl_dep.talla2}">
-                                            <input type="hidden" id="product-size" value="${tbl_dep.talla3}">
+                                            <input type="hidden" id="product-size" value="${tbl_dep_ver.talla1}">
+                                            <input type="hidden" id="product-size" value="${tbl_dep_ver.talla2}">
+                                            <input type="hidden" id="product-size" value="${tbl_dep_ver.talla3}">
                                         </div>
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@ function imprimirAlerta(j) {
 
             // Asegúrate de agregar el evento de click al botón
             $('#cardDeportivoS button').eq(0).off('click'); // Elimina cualquier evento anterior
-            $('#cardDeportivoS button').eq(0).on('click', () => agregarAlCarrito(tbl_dep));
+            $('#cardDeportivoS button').eq(0).on('click', () => agregarAlCarrito(tbl_dep_ver));
         })
         .catch(error => console.log('Error:', error));
 }

@@ -13,7 +13,7 @@ app.listen(port, () => {
 });
 
 //Trae datos de la tabla tbl_dep
-app.get('/tbl_dep', (req, res) => {
+app.get('/tbl_dep_ver', (req, res) => {
     connection.query('SELECT * FROM tbl_dep', (err, result) => {
         if (err) {
             res.status(500).send('Error al obtener los datos de la base de datos');
@@ -23,7 +23,7 @@ app.get('/tbl_dep', (req, res) => {
     });
 });
 //Trae datos de la tabla tbl_for
-app.get('/tbl_for', (req, res) => {
+app.get('/tbl_for_ver', (req, res) => {
     connection.query('SELECT * FROM tbl_for', (err, result) => {
         if (err) {
             res.status(500).send('Error al obtener los datos de la base de datos');
@@ -34,7 +34,7 @@ app.get('/tbl_for', (req, res) => {
 });
 
 //Trae datos de la tabla tbl_inc
-app.get('/tbl_inc', (req, res) => {
+app.get('/tbl_inc_ver', (req, res) => {
     connection.query('SELECT * FROM tbl_inc', (err, result) => {
         if (err) {
             res.status(500).send('Error al obtener los datos de la base de datos');
@@ -104,6 +104,27 @@ app.post('/tbl_metodo_pag', (req, res) => {
                    VALUES (?, ?, ?)`;
 
     connection.query(query, [descripcion_met, comprobante_met, id_cli], (err, result) => {
+        if (err) {
+            console.error('Error al insertar datos:', err);
+            return res.status(500).send('Error al insertar los datos en la base de datos');
+        }
+
+        res.status(200).send('Datos insertados correctamente');
+    });
+})
+
+app.post('/tbl_compras', (req, res) => {
+    const { cantidad_comp, id_dep, id_for, id_inc, id_met } = req.body;
+    // Validación de los campos obligatorios
+    if (!cantidad_comp || !id_dep || !id_for || !id_inc || !id_met) {
+        return res.status(400).send('Por favor, complete todos los campos obligatorios');
+    }
+
+    // Consulta SQL para insertar datos
+    const query = `INSERT INTO tbl_compras ( cantidad_comp, id_dep, id_for, id_inc, id_met ) 
+                   VALUES (?, ?, ?, ?, ?)`;
+
+    connection.query(query, [cantidad_comp, id_dep, id_for, id_inc, id_met], (err, result) => {
         if (err) {
             console.error('Error al insertar datos:', err);
             return res.status(500).send('Error al insertar los datos en la base de datos');
