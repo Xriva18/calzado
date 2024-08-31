@@ -170,21 +170,21 @@ app.post('/get-id-metodo', (req, res) => {
         return res.status(400).send('Por favor, complete todos los campos obligatorios');
     }
 
-    // Consulta SQL para obtener el id_cli basado en los valores proporcionados
+    // Consulta SQL para obtener el id_met basado en los valores proporcionados
     const query = `SELECT id_met FROM tbl_metodo_pago WHERE descripcion_met = ? AND comprobante_met = ? AND id_cli = ?`;
 
     connection.query(query, [descripcion_met, comprobante_met, id_cli], (err, result) => {
         if (err) {
-            console.error('Error al obtener el id_cli:', err);
+            console.error('Error al obtener el id_met:', err);
             return res.status(500).send('Error al consultar la base de datos');
         }
 
         if (result.length > 0) {
-            // Si se encuentra el cliente, devolver el id_cli
-            res.status(200).json({ id_cli: result[0].id_cli });
+            // Si se encuentra el método de pago, devolver el id_met
+            res.status(200).json({ id_met: result[0].id_met });
         } else {
-            // Si no se encuentra ningún cliente que coincida, devolver id_cli = -1
-            res.status(200).json({ id_cli: -1 });
+            // Si no se encuentra ningún método de pago que coincida, devolver id_met = -1
+            res.status(200).json({ id_met: -1 });
         }
     });
 });

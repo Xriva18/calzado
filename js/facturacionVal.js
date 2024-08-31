@@ -294,6 +294,7 @@ function enviarMetodo() {
 
 function enviarCompra() {
     alert("Envaindo la compra")
+    alert(JSON.stringify(metodoData));
     // Primero obtenemos el id_cli
     fetch('http://localhost:3000/get-id-metodo', {
         method: 'POST',
@@ -312,12 +313,12 @@ function enviarCompra() {
             alert('Funcion enviarMetodo extracion id_met');
             // Aquí tenemos el id_cli que necesitamos
             const id_met = data.id_met;
-            alert('ID del cliente obtenido: ' + id_met);
+            alert('ID del metodo obtenido: ' + id_met);
             compraData = {
                 cantidad_comp: 1,
                 id_dep: 1,
-                id_for: 0,
-                id_inc: 0,
+                id_for: null,
+                id_inc: 1,
                 id_met: id_met,
             };
 
@@ -469,7 +470,7 @@ function GenerarPDF() {
 }
 
 function limipar() {
-    alert('Limioando');
-    localStorage.clear();
-    location.reload();
+    /* alert('Limioando');
+     localStorage.clear();
+     location.reload();*/
 }
