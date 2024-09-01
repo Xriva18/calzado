@@ -158,7 +158,7 @@ function validarFormularioFact() {
             cedula_cli: cedula,
             correo_cli: correo
         };
-        alert('Datos validados correctamente');
+        //alert('Datos validados correctamente');
         envio_datos_bdd();
     });
 }
@@ -179,25 +179,25 @@ function envio_datos_bdd() {
             return response.json(); // Parseamos la respuesta a JSON
         })
         .then(data => {
-            alert('funcion envio_datos_bdd');
+            //alert('funcion envio_datos_bdd');
             repetidosUsers = data.id_cli;
-            alert('ID del cliente obtenido: ' + repetidosUsers);
+            //alert('ID del cliente obtenido: ' + repetidosUsers);
 
             if (repetidosUsers != -1) {
-                alert('El cliente existe: ' + repetidosUsers);
+                //alert('El cliente existe: ' + repetidosUsers);
             } else {
-                alert('Cliente no existe');
+                //alert('Cliente no existe');
                 enviarCliente();
             }
             enviarMetodo();
             const resultadoPDF = GenerarPDF();
-            if (resultadoPDF == 1) {
+            /*if (resultadoPDF == 1) {
                 setTimeout(() => {
                     limipar();
                 }, 5000);
-            }
+            }*/
+            //alert('termino funcion envio_datos_bdd');
             return true;
-            alert('termino funcion envio_datos_bdd');
         })
         .catch(error => {
             console.error('Hubo un problema con la solicitud Fetch:', error);
@@ -205,7 +205,7 @@ function envio_datos_bdd() {
 }
 
 function enviarCliente() {
-    alert(JSON.stringify(clienteData));
+    //alert(JSON.stringify(clienteData));
     fetch('http://localhost:3000/tbl_clientes', {
         method: 'POST', // Método de la solicitud
         headers: {
@@ -220,19 +220,18 @@ function enviarCliente() {
             return response.text();
         })
         .then(data => {
-            alert('funcion enviarCliente');
+            //alert('funcion enviarCliente');
             console.log('Respuesta del servidor:', data);
-            swal("Producto comprado", "Compra realizada", "success");
-            alert("Termino funcion enviarCliente");
+            //alert("Termino funcion enviarCliente");
         })
         .catch(error => {
             console.error('Hubo un error al enviar los datos enviarCliente:', error);
-            alert('Hubo un error XD');
+            //alert('Hubo un error XD');
         });
 }
 
 function enviarMetodo() {
-    // Primero obtenemos el id_cli
+
     fetch('http://localhost:3000/get-id-cli', {
         method: 'POST',
         headers: {
@@ -247,19 +246,19 @@ function enviarMetodo() {
             return response.json(); // Parseamos la respuesta a JSON
         })
         .then(data => {
-            alert('Funcion enviarMetodo extracion id_cli');
+            //alert('Funcion enviarMetodo extracion id_cli');
             // Aquí tenemos el id_cli que necesitamos
             const id_cli = data.id_cli;
-            alert('ID del cliente obtenido: ' + id_cli);
+            //alert('ID del cliente obtenido: ' + id_cli);
             metodoData = {
                 descripcion_met: descripcion_enviar,
                 comprobante_met: tarjeta_comprobantete, // Usamos el comprobante ingresado
                 id_cli: id_cli
             };
 
-            alert('Enviando datos del método de pago...');
-            alert(JSON.stringify(metodoData));
-            alert('termino Funcion enviarMetodo extracion id_cli');
+            //alert('Enviando datos del método de pago...');
+            //alert(JSON.stringify(metodoData));
+            //alert('termino Funcion enviarMetodo extracion id_cli');
 
             // Enviamos los datos del método de pago
             return fetch('http://localhost:3000/tbl_metodo_pag', {
@@ -280,20 +279,20 @@ function enviarMetodo() {
         .then(data => {
 
             //Despues d eaver enviado los datos 
-            alert(" funcion enviarMetodo");
+            //alert(" funcion enviarMetodo");
             console.log('Respuesta del servidor:', data);
-            alert('Datos enviados correctamente');
-            alert("termino funcion enviarMetodo");
+            //alert('Datos enviados correctamente');
+            //alert("termino funcion enviarMetodo");
             enviarCompra()
         })
         .catch(error => {
             console.error('Hubo un error:', error);
-            alert('Hubo un error al procesar la solicitud enviarMetodo');
+            //alert('Hubo un error al procesar la solicitud enviarMetodo');
         });
 }
 async function enviarCompra() {
-    alert("Enviando la compra");
-    alert(JSON.stringify(metodoData));
+    //alert("Enviando la compra");
+    //alert(JSON.stringify(metodoData));
 
     try {
         // Primero obtenemos el id_met
@@ -310,9 +309,9 @@ async function enviarCompra() {
         }
 
         const data = await response.json(); // Parseamos la respuesta a JSON
-        alert('Funcion enviarMetodo extracion id_met');
+        //alert('Funcion enviarMetodo extracion id_met');
         const id_met = data.id_met;
-        alert('ID del metodo obtenido: ' + id_met);
+        //alert('ID del metodo obtenido: ' + id_met);
 
         const productos_bdd = JSON.parse(localStorage.getItem("zapatillas"));
 
@@ -323,20 +322,20 @@ async function enviarCompra() {
                 precio: producto_bdd.precio
             };
 
-            alert(producto_bdd.nombre.toString());
-            alert(producto_bdd.precio);
+            //alert(producto_bdd.nombre.toString());
+            //alert(producto_bdd.precio);
 
             // Esperamos a que se resuelva la función buscarProducto
             const buscar_producto = await buscarProducto(productoData);
-            alert("XXXXXXXXXXXXXXXXXX" + JSON.stringify(buscar_producto));
+            //alert("XXXXXXXXXXXXXXXXXX" + JSON.stringify(buscar_producto));
             const id_producto = buscar_producto[0].id;
             const tabla_producto = buscar_producto[0].tabla_origen;
-            alert("FFFFFFFFFFFFFFFFFFFF" + id_producto);
-            alert("TTTTTTTTTTTTTTTTTTT" + tabla_producto);
+            //alert("FFFFFFFFFFFFFFFFFFFF" + id_producto);
+            //alert("TTTTTTTTTTTTTTTTTTT" + tabla_producto);
 
             let compraData;
             if (tabla_producto === "A") {
-                alert("Tabla A");
+                //alert("Tabla A");
                 compraData = {
                     cantidad_comp: producto_bdd.cantidad,
                     id_dep: id_producto,
@@ -346,7 +345,7 @@ async function enviarCompra() {
                     precioTotal_com: producto_bdd.precio * producto_bdd.cantidad
                 };
             } else if (tabla_producto === "B") {
-                alert("Tabla B");
+                //alert("Tabla B");
                 compraData = {
                     cantidad_comp: producto_bdd.cantidad,
                     id_dep: -1,
@@ -356,7 +355,7 @@ async function enviarCompra() {
                     precioTotal_com: producto_bdd.precio * producto_bdd.cantidad
                 };
             } else if (tabla_producto === "C") {
-                alert("Tabla C");
+                //alert("Tabla C");
                 compraData = {
                     cantidad_comp: producto_bdd.cantidad,
                     id_dep: -1,
@@ -367,8 +366,10 @@ async function enviarCompra() {
                 };
             }
 
-            alert('Enviando datos de la compra de pago...');
-            alert(JSON.stringify(compraData));
+            //alert('Enviando datos de la compra de pago...');
+            //alert(JSON.stringify(compraData));
+            swal("Producto comprado", "Compra realizada", "success");
+            limipar();
 
             // Enviamos los datos del método de pago
             const compraResponse = await fetch('http://localhost:3000/tbl_compras', {
@@ -386,11 +387,12 @@ async function enviarCompra() {
             await compraResponse.text();
         }
 
-        alert("Se insertó correctamente las compras");
+        //alert("Se insertó correctamente las compras");
+
 
     } catch (error) {
         console.error('Hubo un error:', error);
-        alert('Hubo un error al procesar la solicitud enviarMetodo');
+        //alert('Hubo un error al procesar la solicitud enviarMetodo');
     }
 }
 
@@ -416,13 +418,13 @@ async function buscarProducto(productoData) {
             return -1;
         }
     } catch (error) {
-        alert('Error al buscar el producto: ' + error.message);
+        //alert('Error al buscar el producto: ' + error.message);
         throw error; // Lanzar el error para que pueda ser manejado por el llamador
     }
 }
 
 
-///onclick="if (validarFormularioFact()) { GenerarPDF(); alert('Su pago se realizó con éxito'); }
+///onclick="if (validarFormularioFact()) { GenerarPDF(); //alert('Su pago se realizó con éxito'); }
 function GenerarPDF() {
     var doc = new jsPDF();
     var y = 25;
@@ -542,7 +544,7 @@ function GenerarPDF() {
 }
 
 function limipar() {
-    /* alert('Limioando');
-     localStorage.clear();
-     location.reload();*/
+
+    localStorage.clear();
+    location.reload();
 }
