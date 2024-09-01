@@ -343,6 +343,7 @@ async function enviarCompra() {
                     id_for: -1,
                     id_inc: -1,
                     id_met: id_met,
+                    precioTotal_com: producto_bdd.precio * producto_bdd.cantidad
                 };
             } else if (tabla_producto === "B") {
                 alert("Tabla B");
@@ -352,6 +353,7 @@ async function enviarCompra() {
                     id_for: id_producto,
                     id_inc: -1,
                     id_met: id_met,
+                    precioTotal_com: producto_bdd.precio * producto_bdd.cantidad
                 };
             } else if (tabla_producto === "C") {
                 alert("Tabla C");
@@ -361,6 +363,7 @@ async function enviarCompra() {
                     id_for: -1,
                     id_inc: id_producto,
                     id_met: id_met,
+                    precioTotal_com: producto_bdd.precio * producto_bdd.cantidad
                 };
             }
 
