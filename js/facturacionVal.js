@@ -291,64 +291,133 @@ function enviarMetodo() {
             alert('Hubo un error al procesar la solicitud enviarMetodo');
         });
 }
-
-function enviarCompra() {
-    alert("Envaindo la compra")
+async function enviarCompra() {
+    alert("Enviando la compra");
     alert(JSON.stringify(metodoData));
-    // Primero obtenemos el id_cli
-    fetch('http://localhost:3000/get-id-metodo', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
-        },
-        body: JSON.stringify(metodoData) // Enviamos los datos del cliente
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error al obtener el ID del metodo');
-            }
-            return response.json(); // Parseamos la respuesta a JSON
-        })
-        .then(data => {
-            alert('Funcion enviarMetodo extracion id_met');
-            // Aquí tenemos el id_cli que necesitamos
-            const id_met = data.id_met;
-            alert('ID del metodo obtenido: ' + id_met);
-            compraData = {
-                cantidad_comp: 1,
-                id_dep: 1,
-                id_for: -1,
-                id_inc: -1,
-                id_met: id_met,
+
+    try {
+        // Primero obtenemos el id_met
+        const response = await fetch('http://localhost:3000/get-id-metodo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Especifica que los datos están en formato JSON
+            },
+            body: JSON.stringify(metodoData) // Enviamos los datos del cliente
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al obtener el ID del metodo');
+        }
+
+        const data = await response.json(); // Parseamos la respuesta a JSON
+        alert('Funcion enviarMetodo extracion id_met');
+        const id_met = data.id_met;
+        alert('ID del metodo obtenido: ' + id_met);
+
+        const productos_bdd = JSON.parse(localStorage.getItem("zapatillas"));
+
+        for (const producto_bdd of productos_bdd) {
+            //aqui operacion del precio
+            const productoData = {
+                nombre: producto_bdd.nombre.toString(),
+                precio: producto_bdd.precio
             };
+
+            alert(producto_bdd.nombre.toString());
+            alert(producto_bdd.precio);
+
+            // Esperamos a que se resuelva la función buscarProducto
+            const buscar_producto = await buscarProducto(productoData);
+            alert("XXXXXXXXXXXXXXXXXX" + JSON.stringify(buscar_producto));
+            const id_producto = buscar_producto[0].id;
+            const tabla_producto = buscar_producto[0].tabla_origen;
+            alert("FFFFFFFFFFFFFFFFFFFF" + id_producto);
+            alert("TTTTTTTTTTTTTTTTTTT" + tabla_producto);
+
+            let compraData;
+            if (tabla_producto === "A") {
+                alert("Tabla A");
+                compraData = {
+                    cantidad_comp: producto_bdd.cantidad,
+                    id_dep: id_producto,
+                    id_for: -1,
+                    id_inc: -1,
+                    id_met: id_met,
+                };
+            } else if (tabla_producto === "B") {
+                alert("Tabla B");
+                compraData = {
+                    cantidad_comp: producto_bdd.cantidad,
+                    id_dep: -1,
+                    id_for: id_producto,
+                    id_inc: -1,
+                    id_met: id_met,
+                };
+            } else if (tabla_producto === "C") {
+                alert("Tabla C");
+                compraData = {
+                    cantidad_comp: producto_bdd.cantidad,
+                    id_dep: -1,
+                    id_for: -1,
+                    id_inc: id_producto,
+                    id_met: id_met,
+                };
+            }
 
             alert('Enviando datos de la compra de pago...');
             alert(JSON.stringify(compraData));
 
             // Enviamos los datos del método de pago
-            return fetch('http://localhost:3000/tbl_compras', {
+            const compraResponse = await fetch('http://localhost:3000/tbl_compras', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(compraData)
             });
-        })
 
-        .then(response => {
-            if (!response.ok) {
+            if (!compraResponse.ok) {
                 throw new Error('Error al enviar los datos del método de pago');
             }
-            return response.text();
-        })
-        .then(data => {
-            alert("Se inserto Correctamente las compras");
-        })
-        .catch(error => {
-            console.error('Hubo un error:', error);
-            alert('Hubo un error al procesar la solicitud enviarMetodo');
-        });
+
+            await compraResponse.text();
+        }
+
+        alert("Se insertó correctamente las compras");
+
+    } catch (error) {
+        console.error('Hubo un error:', error);
+        alert('Hubo un error al procesar la solicitud enviarMetodo');
+    }
 }
+
+async function buscarProducto(productoData) {
+    try {
+        const response = await fetch('http://localhost:3000/buscar_producto', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(productoData)
+        });
+
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error('Error en la solicitud: ' + text);
+        }
+
+        const data = await response.json();
+        if (data && data.length > 0) {
+            return data; // Cambia el índice si necesitas otro elemento
+        } else {
+            return -1;
+        }
+    } catch (error) {
+        alert('Error al buscar el producto: ' + error.message);
+        throw error; // Lanzar el error para que pueda ser manejado por el llamador
+    }
+}
+
 
 ///onclick="if (validarFormularioFact()) { GenerarPDF(); alert('Su pago se realizó con éxito'); }
 function GenerarPDF() {

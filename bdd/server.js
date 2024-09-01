@@ -114,17 +114,17 @@ app.post('/tbl_metodo_pag', (req, res) => {
 })
 
 app.post('/tbl_compras', (req, res) => {
-    const { cantidad_comp, id_dep, id_for, id_inc, id_met } = req.body;
+    const { cantidad_comp, id_dep, id_for, id_inc, id_met, precioTotal_com } = req.body;
     // Validación de los campos obligatorios
-    if (!cantidad_comp || !id_dep || !id_for || !id_inc || !id_met) {
+    if (!cantidad_comp || !id_dep || !id_for || !id_inc || !id_met || !precioTotal_com) {
         return res.status(400).send('Por favor, complete todos los campos obligatorios');
     }
 
     // Consulta SQL para insertar datos
-    const query = `INSERT INTO tbl_compras ( cantidad_comp, id_dep, id_for, id_inc, id_met ) 
-                   VALUES (?, ?, ?, ?, ?)`;
+    const query = `INSERT INTO tbl_compras ( cantidad_comp, id_dep, id_for, id_inc, id_met, precioTotal_com) 
+                   VALUES (?, ?, ?, ?, ?,?)`;
 
-    connection.query(query, [cantidad_comp, id_dep, id_for, id_inc, id_met], (err, result) => {
+    connection.query(query, [cantidad_comp, id_dep, id_for, id_inc, id_met, precioTotal_com], (err, result) => {
         if (err) {
             console.error('Error al insertar datos:', err);
             return res.status(500).send('Error al insertar los datos en la base de datos');
@@ -186,5 +186,36 @@ app.post('/get-id-metodo', (req, res) => {
             // Si no se encuentra ningún método de pago que coincida, devolver id_met = -1
             res.status(200).json({ id_met: -1 });
         }
+    });
+});
+
+
+// Función para ejecutar la consulta con UNION
+app.post('/buscar_producto', (req, res) => {
+    const { nombre, precio } = req.body;
+
+    // Validación básica de los campos
+    if (!nombre || !precio) {
+        return res.status(400).send('Por favor, complete todos los campos obligatorios');
+    }
+
+    // Consulta SQL con UNION para buscar en varias tablas
+    const query = `
+        SELECT id, 'A' AS tabla_origen FROM tbl_dep WHERE nombre = ? AND precio = ?
+        UNION
+        SELECT id, 'B' AS tabla_origen FROM tbl_for WHERE nombre = ? AND precio = ?
+        UNION
+        SELECT id, 'C' AS tabla_origen FROM tbl_inc WHERE nombre = ? AND precio = ?
+    `;
+
+    // Ejecutar la consulta
+    connection.query(query, [nombre, precio, nombre, precio, nombre, precio], (err, result) => {
+        if (err) {
+            console.error('Error al ejecutar la consulta:', err);
+            return res.status(500).send('Error al consultar la base de datos');
+        }
+
+        // Devolver el resultado de la consulta
+        res.status(200).json(result);
     });
 });
