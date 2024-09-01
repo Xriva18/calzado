@@ -191,11 +191,11 @@ function envio_datos_bdd() {
             }
             enviarMetodo();
             const resultadoPDF = GenerarPDF();
-            /*if (resultadoPDF == 1) {
+            if (resultadoPDF == 1) {
                 setTimeout(() => {
-                    limipar();
+                    //limipar();
                 }, 5000);
-            }*/
+            }
             //alert('termino funcion envio_datos_bdd');
             return true;
         })
@@ -222,6 +222,7 @@ function enviarCliente() {
         .then(data => {
             //alert('funcion enviarCliente');
             console.log('Respuesta del servidor:', data);
+            swal("Producto comprado", "Compra realizada", "success");
             //alert("Termino funcion enviarCliente");
         })
         .catch(error => {
@@ -368,8 +369,6 @@ async function enviarCompra() {
 
             //alert('Enviando datos de la compra de pago...');
             //alert(JSON.stringify(compraData));
-            swal("Producto comprado", "Compra realizada", "success");
-            limipar();
 
             // Enviamos los datos del método de pago
             const compraResponse = await fetch('http://localhost:3000/tbl_compras', {
@@ -388,7 +387,6 @@ async function enviarCompra() {
         }
 
         //alert("Se insertó correctamente las compras");
-
 
     } catch (error) {
         console.error('Hubo un error:', error);
